@@ -20,6 +20,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void findSpot(View view){
+        Intent i= new Intent(this,FIND.class);
+        startActivity(i);
+    }
+
+
+
+    public void bookSpot(View view){
+        Intent i= new Intent(this,BOOK.class);
+        startActivity(i);
+    }
+
+
+
+
+
 
     public void getCarStatus(View view){
         Intent i= new Intent(this,CAR.class);
@@ -34,4 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(i);
     }
+
+
+
+
 }
