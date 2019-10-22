@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CAR">
+
+    <TextView
+        android:id="@+id/yourCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOUR CAR"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_marginLeft="90dp"
+
+         />
+
+
+
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_below="@+id/yourCar"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="90dp"
+
+        />
+    <TextView
+        android:id="@+id/nameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Name"
+        android:layout_below="@+id/yourCar"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Model"
+        android:layout_below="@+id/nameValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"
+
+        />
+    <TextView
+        android:id="@+id/modelValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Model Name"
+        android:layout_below="@+id/nameValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/carNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CarNo"
+        android:layout_below="@+id/modelValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"
+
+        />
+
+    <TextView
+        android:id="@+id/carNoValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Car No"
+        android:layout_below="@+id/modelValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/charging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Charging"
+        android:layout_below="@+id/carNoValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"/>
+    <CheckBox
+        android:id="@+id/chargingStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/carNoValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="170dp"
+        android:checked="true"
+        />
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Battery"
+        android:layout_below="@+id/charging"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"/>
+
+    <ProgressBar
+        android:id="@+id/batteryLevel"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/charging"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="170dp"
+        android:progress="50"
+
+
+        />
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/lastCharged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last charged"
+        android:layout_below="@+id/batteryLevel"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/parkedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:layout_below="@+id/lastCharged"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/parkedTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xx : xx"
+        android:layout_below="@+id/lastCharged"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="150dp"/>
+    <TextView
+        android:id="@+id/parkedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_below="@+id/parkedTime"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/parkedDateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xx - xx - xxxx"
+        android:layout_below="@+id/parkedTime"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/expectedDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expected Delivery"
+        android:layout_below="@+id/parkedDateValue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/DeliveryTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:layout_below="@+id/expectedDelivery"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/DeliveryTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xx : xx"
+        android:layout_below="@+id/expectedDelivery"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="150dp"/>
+    <TextView
+        android:id="@+id/DeliveryDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_below="@+id/DeliveryTime"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="90dp"/>
+    <TextView
+        android:id="@+id/DeliveryDateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xx - xx - xxxx"
+        android:layout_below="@+id/DeliveryTime"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="150dp"/>
+
+
+
+
+
+    <Button
+        android:id="@+id/spot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spot your car"
+        android:layout_below="@+id/DeliveryDateValue"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="120dp"
+        android:onClick="spotYourCar"
+        />
+
+
+</RelativeLayout>
