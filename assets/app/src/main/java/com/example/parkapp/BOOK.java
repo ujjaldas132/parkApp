@@ -3,10 +3,14 @@ package com.example.parkapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class BOOK extends AppCompatActivity {
@@ -20,13 +24,14 @@ public class BOOK extends AppCompatActivity {
             "0.5","1","1.5","2","2.5","3"
     };
 
+    public HashMap<String,String> spaceMap= new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
 
-
+        spaceMap.put("MAHINDRA","4");spaceMap.put("Tesla","3");
 
 
 
@@ -38,6 +43,36 @@ public class BOOK extends AppCompatActivity {
         s.setAdapter(adapter);
 
 
+
+
+
+
+
+        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                //String selectedItem = parent.getItemAtPosition(position).toString(); //this is your selected item
+                String selectedVehicle=String.valueOf(parent.getSelectedItem());
+                TextView spacedisp=(TextView) findViewById(R.id.spaceRequiredValue);
+                spacedisp.setText(spaceMap.get(selectedVehicle));
+            }
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
+        
+
+
+
+
+
+
+
+        String selectedVehicle=String.valueOf(s.getSelectedItem());
+        TextView spacedisp=(TextView) findViewById(R.id.spaceRequiredValue);
+        spacedisp.setText(spaceMap.get(selectedVehicle));
 
 
 

@@ -15,4 +15,132 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_marginLeft="90dp"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/vehicle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Vehicle"
+        android:layout_below="@id/header"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="70dp"
+        />
+    <Spinner
+        android:id="@+id/selectVehicle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="180dp"
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/spaceRequired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Space Require"
+        android:layout_below="@id/selectVehicle"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="70dp"
+        />
+    <TextView
+        android:id="@+id/spaceRequiredValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Space Required Value"
+        android:layout_below="@id/selectVehicle"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="200dp"
+        />
+
+
+
+
+
+    <TextView
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Space"
+        android:layout_below="@id/spaceRequiredValue"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="70dp"
+        />
+    <Spinner
+        android:id="@+id/selectSpace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spaceRequiredValue"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="180dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cost"
+        android:layout_below="@id/selectSpace"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="70dp"
+        />
+    <TextView
+        android:id="@+id/costPower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="per Watt"
+        android:layout_below="@id/cost"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp"
+        />
+    <TextView
+        android:id="@+id/costPowerValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XX.XX"
+        android:layout_below="@id/cost"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="200dp"
+        />
+    <TextView
+        android:id="@+id/costPark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="per Watt"
+        android:layout_below="@id/costPowerValue"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp"
+        />
+    <TextView
+        android:id="@+id/costParkValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XX.XX"
+        android:layout_below="@id/costPowerValue"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="200dp"
+        />
+
+    <Button
+        android:id="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BOOK"
+        android:layout_below="@id/costPowerValue"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="170dp"/>
+
+
+
+
 </RelativeLayout>
