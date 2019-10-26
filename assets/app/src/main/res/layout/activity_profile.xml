@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/header_image"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+
+            />
+        <ImageButton
+            android:id="@+id/profile_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/header_image"
+            android:layout_marginTop="-60dp"
+            android:layout_marginLeft="130dp"
+            android:src="@drawable/profile_pic"
+            android:translationZ="90dp"
+            android:scaleType="centerCrop"
+            android:padding="10dp"/>
+
+
+
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_image"
+            android:background="@color/cardview_shadow_start_color"
+            >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Ujjal Das"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="100dp"
+                android:textColor="#fff"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Bhubaneswar"
+                android:layout_below="@+id/name"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="0dp"
+                android:textColor="#fff"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/second">
+
+
+
+            <TextView
+                android:id="@+id/car"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="car : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+            <TextView
+                android:id="@+id/carNames"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:text="Lamborgini"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+
+
+
+
+            <TextView
+                android:id="@+id/licence"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/car"
+                android:text="licenceNo : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+            <TextView
+                android:id="@+id/licenceNo"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/car"
+                android:text="XXXXXXXXX"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+
+
+
+            <TextView
+                android:id="@+id/Rc"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/licenceNo"
+                android:text="Rc No : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+            <TextView
+                android:id="@+id/RcNo"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/licenceNo"
+                android:text="XXXXXX"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/polutuionCertificate"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/RcNo"
+                android:text="polutuion Certificate No : "
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+            <TextView
+                android:id="@+id/polutuionCertificateNo"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/RcNo"
+                android:text="XXXXXXXX"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#0883E6"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="sans"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+</ScrollView>

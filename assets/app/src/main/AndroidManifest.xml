@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FIND"></activity>
+        <activity android:name=".Profile"></activity>
+        <activity android:name=".FIND" />
         <activity android:name=".BOOK" />
         <activity android:name=".CAR" />
         <activity android:name=".MainActivity">

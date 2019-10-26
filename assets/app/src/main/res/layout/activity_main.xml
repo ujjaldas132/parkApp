@@ -71,6 +71,21 @@
 
         />
 
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Profile"
+        android:layout_below="@+id/carStatus"
+
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="20dp"
+        android:onClick="profile"
+
+
+
+        />
+
 
 
 </RelativeLayout>

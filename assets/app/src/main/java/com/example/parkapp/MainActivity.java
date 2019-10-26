@@ -54,4 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+    public void profile(View view){
+        Intent i;
+        i = new Intent(this,Profile.class);
+        startActivity(i);
+    }
+
+
+
 }
