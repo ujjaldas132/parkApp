@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,17 +17,24 @@
             android:scaleType="centerCrop"
 
             />
-        <ImageButton
+        <de.hdodenhof.circleimageview.CircleImageView
+
+
             android:id="@+id/profile_img"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_below="@+id/header_image"
-            android:layout_marginTop="-60dp"
-            android:layout_marginLeft="130dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginLeft="120dp"
             android:src="@drawable/profile_pic"
             android:translationZ="90dp"
             android:scaleType="centerCrop"
-            android:padding="10dp"/>
+            android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
 
 
 
@@ -209,6 +217,9 @@
                 android:textStyle="italic"
                 android:typeface="sans"
                 />
+
+
+
 
         </RelativeLayout>
 
