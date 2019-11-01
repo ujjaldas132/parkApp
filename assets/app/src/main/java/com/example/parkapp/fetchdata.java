@@ -82,9 +82,9 @@ public class fetchdata extends AsyncTask<Void,Void,Void> {
     }
 
     public void givesomedata(){
-        MainActivity.name="Unknown Person";
-        MainActivity.carModel="Unknown Model";
-        MainActivity.CarNo="Unknown NO";
+        MainActivity.name="Ujjal Das";
+        MainActivity.carModel="Lamborgini";
+        MainActivity.CarNo="AS 8264";
 
     }
 

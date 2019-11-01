@@ -3,6 +3,8 @@ package com.example.parkapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class CAR extends AppCompatActivity {
@@ -28,6 +30,20 @@ public class CAR extends AppCompatActivity {
         String carNoVal=dataFromIntent.getString("carNo");
         final TextView carNoDisp= (TextView) findViewById(R.id.carNoValue);
         carNoDisp.setText(carNoVal);
+
+
+        Boolean chargingStatus = dataFromIntent.getBoolean("charging");
+        CheckBox charge= (CheckBox) findViewById(R.id.chargingStatus);
+        charge.setChecked(chargingStatus);
+
+
+
+
+        int battaryLevel= dataFromIntent.getInt("batteryLevel");
+        ProgressBar battaryBar= (ProgressBar) findViewById(R.id.batteryLevel);
+        battaryBar.setProgress(battaryLevel);
+
+
 
     }
 }
