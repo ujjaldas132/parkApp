@@ -4,15 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String name="Ujjal Das";
-    public String carModel="TESLA ";
-    public String CarNo="AS 6858";
+    public static String name="";
+    public static String carModel="";
+    public static String CarNo="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void getCarStatus(View view){
+
+
+        fetchdata process = new fetchdata();
+        process.execute();
+
+
         Intent i= new Intent(this,CAR.class);
+
+
+            process.givesomedata();
+
+//        String temp=String.valueOf(name);
+//        Log.d("mess>>>>>>>>>>>>>>>",temp);
 
 
 
