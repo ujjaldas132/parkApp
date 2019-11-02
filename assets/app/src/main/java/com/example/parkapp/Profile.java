@@ -21,9 +21,9 @@ public class Profile extends AppCompatActivity {
         nameDisp.setText(nameVal);
 
 
-//        String nameVal1=dataFromIntent.getString("Place");
-//        final TextView nameDisp1= (TextView) findViewById(R.id.location);
-//        nameDisp.setText(nameVal1);
+        String locationVal=dataFromIntent.getString("Place");
+        final TextView locDisp= (TextView) findViewById(R.id.location);
+        locDisp.setText(locationVal);
 
 
 //        String nameVal2=dataFromIntent.getString("Name");

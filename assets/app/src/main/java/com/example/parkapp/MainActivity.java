@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         // update data from the server
         fetchdata process = new fetchdata();
-        process.givesomedata();
+        process.execute();
 
 
     }
@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
         i.putExtra("Name",name);
 
-        i.putExtra("Place",place);
+        i.putExtra("Place",this.place);
 
-        i.putExtra("carNo",CarNo);
+        i.putExtra("carNo",this.CarNo);
 
 
         startActivity(i);
