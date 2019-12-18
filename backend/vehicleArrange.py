@@ -1,8 +1,7 @@
-class vehicle:
-    def __init__(self,space,id,time):
-        self.space=space
-        self.id=id
-        self.timeToBeInParkingLot=time
+
+
+from vehicle import vehicle
+
 
 class arrange:
     def __init__(self):
@@ -10,6 +9,7 @@ class arrange:
         self.mostPriorVehicle=None
         self.chargedVehicles=[]
         self.noOfCars=0
+
     def getMostPriorVehicle(self):
         if self.mostPriorVehicle!=None:
             return self.mostPriorVehicle
@@ -51,7 +51,7 @@ class arrange:
             parentVehicle=self.vehicles[parentIndex]
             if(childVehicle.timeToBeInParkingLot<parentVehicle.timeToBeInParkingLot):
                 self.vehicles[parentIndex]=childVehicle
-                self.vehicles[childVehicle]=parentVehicle
+                self.vehicles[index]=parentVehicle
                 self.upArrange(parentIndex)
             return
         return
@@ -80,6 +80,18 @@ class arrange:
                 index=changedToIndex
             else:
                 return
+
+
+if __name__ == '__main__':
+    v1=vehicle(1,1,1)
+    v2=vehicle(1,1,20)
+    v3=vehicle(1,1,5)
+    v4=vehicle(1,1,3)
+    park=arrange()
+    park.addVehicle(v1)
+    park.addVehicle(v2)
+    park.addVehicle(v3)
+    park.addVehicle(v4)
 
 
 
