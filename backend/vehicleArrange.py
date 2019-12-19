@@ -1,5 +1,9 @@
 from vehicle import vehicle
 
+"""
+always the most priority vehicle will charge
+all reference will be same
+"""
 
 class arrange:
     def __init__(self):
@@ -81,10 +85,10 @@ class arrange:
 
 
 if __name__ == '__main__':
-    v1=vehicle(1,1,1)
-    v2=vehicle(1,1,20)
-    v3=vehicle(1,1,5)
-    v4=vehicle(1,1,3)
+    v1=vehicle(1,1,1,20)
+    v2=vehicle(1,1,20,20)
+    v3=vehicle(1,1,5,20)
+    v4=vehicle(1,1,3,20)
     park=arrange()
     park.addVehicle(v1)
     park.addVehicle(v2)

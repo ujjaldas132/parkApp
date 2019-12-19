@@ -7,7 +7,7 @@ from timeManagement import timeMangement
 class controller:
     def __init__(self):
         self.vehicleArrangement=arrange()
-        self.timeRecorder=timeMangement()
+        self.timeRecorder=timeMangement(self.vehicleArrangement)
     def newVehicle(self,vehicle):
         '''
         # vehicle: it is a vehicle class object
