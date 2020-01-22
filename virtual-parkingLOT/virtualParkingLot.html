@@ -24,32 +24,77 @@
 
 </body>
 
+
+
+
+
 <script>
 
-// 	for(var i=1;i<8;i++){
-// setTimeout(function(){
-// 	change(i.toString());},i*2100);}
+
+
+
+
+// let url = 'http://127.0.0.1:5000/';
+// var vehicleData;
+// var getVehicleData =  async function getVehicleData(){
+//     new Promise((resolve,reject)=>{
+//         setInterval(function () {
+
+
+
+
+// var xml;
+
+//     $.ajax({
+//         type: "GET",
+//         url: "http://localhost:5000/",
+//         dataType: "text",
+//         success : function(data) {
+//             window.vehicleData = JSON.parse(data);
+//         }
+
+
+//     });
+
+//     console.log(window.vehicleData);
+
+
+//         },5000);
+//         resolve(vehicleData) ;
+//     });
+// };
+
+
+
+var data;
+
+function yourFunction(){
+    // do whatever you like here
+    const http = new XMLHttpRequest()
+
+http.open("GET", "http://127.0.0.1:5000/")
+http.send()
+
+http.onload = () => {console.log(http.responseText);
+data=JSON.parse(http.responseText);
+
+for(var key in data){
+	updatestatusImage(key,data[key])
+}
+
+}
+
+    setTimeout(yourFunction, 2000);
+}
+
+yourFunction();
+
+
+
+
+
 var ids=1;
-// setTimeout(function(){
-// 	for(var i=1;i<8;i++){
-// 		change(i.toString());
-// 	}
-// 	i1=i1+1;
-// },i1*500);
 
-// setTimeout(function(){
-
-// 	change(ids.toString());
-// ids=ids+1;
-
-// },ids*500);
-
-// setTimeout(function(){
-
-// 	change(ids.toString());
-// ids=ids+1;
-
-// },ids*500);
 
 console.log('before');
 change("1");
@@ -78,11 +123,6 @@ var curImageNameSplitter=a.src.split("/");
     	},i*100);
     	
     }
-
-    // setTimeout(function(){a.src="images/carN.PNG";},1000);
-    // setTimeout(function(){a.src="images/carD.PNG";},2000);
-    // setTimeout(function(){a.src="images/carF.PNG";},3000);
-    // setTimeout(function(){a.src="images/carC.PNG";},4000);
     
     }
 
