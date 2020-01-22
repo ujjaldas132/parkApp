@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parking Lot</title>
+</head>
+<body>
+<div >
+<img id="1" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('1')">
+<img id="2" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('2')">
+<img id="3" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('3')">
+<img id="4" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('4')">
+</div>
+
+
+<div >
+<img id="11" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('11')">
+<img id="12" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('12')">
+<img id="13" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('13')">
+<img id="14" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('14')">
+</div>
+
+
+</body>
+
+<script>
+    function change(id){
+    a=document.getElementById(id);
+    var curImageNameSplitter=a.src.split("/");
+    var curImage=curImageNameSplitter[curImageNameSplitter.length-1];
+    console.log(curImage);
+    if(curImage=="car.PNG"){a.src="images/carN.PNG";}
+    else if(curImage=="carN.PNG"){a.src="images/carD.PNG";}
+    else if(curImage=="carD.PNG"){a.src="images/carF.PNG";}
+    else if(curImage=="carF.PNG"){a.src="images/carC.PNG";}
+    else{a.src="images/car.PNG";}
+    
+    }
+
+</script>
+
+
+</html>
