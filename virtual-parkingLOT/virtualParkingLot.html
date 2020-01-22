@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Parking Lot</title>
+   
 </head>
-<body>
+<body style="background-color:'blue';">
 <div >
 <img id="1" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('1')">
 <img id="2" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('2')">
@@ -14,28 +15,99 @@
 
 
 <div >
-<img id="11" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('11')">
-<img id="12" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('12')">
-<img id="13" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('13')">
-<img id="14" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('14')">
+<img id="5" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('5')">
+<img id="6" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('6')">
+<img id="7" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('7')">
+<img id="8" src="images/car.PNG" style="width:400px;height:450px;margin:20px" onclick="change('8')">
 </div>
 
 
 </body>
 
 <script>
+
+// 	for(var i=1;i<8;i++){
+// setTimeout(function(){
+// 	change(i.toString());},i*2100);}
+var ids=1;
+// setTimeout(function(){
+// 	for(var i=1;i<8;i++){
+// 		change(i.toString());
+// 	}
+// 	i1=i1+1;
+// },i1*500);
+
+// setTimeout(function(){
+
+// 	change(ids.toString());
+// ids=ids+1;
+
+// },ids*500);
+
+// setTimeout(function(){
+
+// 	change(ids.toString());
+// ids=ids+1;
+
+// },ids*500);
+
+console.log('before');
+change("1");
+//wait(7000);  //7 seconds in milliseconds
+console.log('after');
+change("2");
+
+
+
     function change(id){
+    	console.log(id);
     a=document.getElementById(id);
-    var curImageNameSplitter=a.src.split("/");
+    for(var i=1;i<=21;i++){
+    	setTimeout(function(){
+
+var curImageNameSplitter=a.src.split("/");
     var curImage=curImageNameSplitter[curImageNameSplitter.length-1];
-    console.log(curImage);
+    console.log(i);
     if(curImage=="car.PNG"){a.src="images/carN.PNG";}
     else if(curImage=="carN.PNG"){a.src="images/carD.PNG";}
     else if(curImage=="carD.PNG"){a.src="images/carF.PNG";}
     else if(curImage=="carF.PNG"){a.src="images/carC.PNG";}
     else{a.src="images/car.PNG";}
+
+
+    	},i*100);
+    	
+    }
+
+    // setTimeout(function(){a.src="images/carN.PNG";},1000);
+    // setTimeout(function(){a.src="images/carD.PNG";},2000);
+    // setTimeout(function(){a.src="images/carF.PNG";},3000);
+    // setTimeout(function(){a.src="images/carC.PNG";},4000);
     
     }
+
+
+    
+
+
+    function updatestatusImage(id,update){
+    	a=document.getElementById(id);
+    	if(update=="n"){a.src="images/carN.PNG";}
+    else if(update=="d"){a.src="images/carD.PNG";}
+    else if(update=="f"){a.src="images/carF.PNG";}
+    else if(update=="c"){a.src="images/carC.PNG";}
+    else{a.src="images/car.PNG";}
+    }
+
+
+
+    function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 </script>
 
