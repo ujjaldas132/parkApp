@@ -1,5 +1,6 @@
 
 import pickle
+from firbase import *
 
 class vehicleInfo:
     def __init__(self,id,foundStatus=False):
@@ -18,7 +19,13 @@ class controller:
     def __init__(self):
 
         self.totalNumberParkingSpot=8
-        self.carsAvailbility=[True for i in range(self.totalNumberParkingSpot)]
+        self.carsAvailbility=[str(True) for i in range(self.totalNumberParkingSpot)]
+
+        #writing to the cloud
+        self.carsAvailbilityStatus={str(i+1):str(True) for i in range(self.totalNumberParkingSpot)}
+        updateTheCarAvailableStatus(self.carsAvailbilityStatus)
+
+
         self.carsInfo=[vehicleInfo(i+1,True) for i in range(self.totalNumberParkingSpot)]
 
         for i in range(self.totalNumberParkingSpot):
@@ -28,6 +35,7 @@ class controller:
             self.writeThePickleFile(i+1,tstatusMap)
 
     def writeThePickleFile(self,id,newData):
+        updateSpecificSpotDetails(id,newData)
         with open('parkingSpotStatusPickles/'+str(id)+'.pickle', 'wb') as handle:
             pickle.dump(newData, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -85,7 +93,7 @@ if __name__ == '__main__':
 
     controller=controller()
     print("stage two")
-    #controller.changeTheStatusOfTheSpot(2,"f")
+    controller.changeTheStatusOfTheSpot(3,"c")
     a=controller.newCarArrived()
     b=controller.newCarArrived()
     c=controller.newCarArrived()
