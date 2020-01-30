@@ -1,3 +1,5 @@
+import copy
+
 from vehicle import vehicle
 
 """
@@ -16,7 +18,7 @@ class arrange:
         if self.mostPriorVehicle!=None:
             return self.mostPriorVehicle
         else:
-            return vehicle(None,None,None)
+            return None
     def ToChargedVehicles(self,index=0):
         self.noOfCars-=1
         if index==0 and self.noOfCars>0:
@@ -34,18 +36,40 @@ class arrange:
         else:
             self.mostPriorVehicle=None
     def addVehicle(self,vehicle):
+        print("new vehicle aiila")
         self.noOfCars+=1
         if self.mostPriorVehicle==None:
             self.mostPriorVehicle=vehicle
             self.vehicles.append(self.mostPriorVehicle)
         else:
             if vehicle.timeToBeInParkingLot<self.mostPriorVehicle.timeToBeInParkingLot:
-                self.vehicles.append(self.mostPriorVehicle.copy)
+                self.vehicles.append(copy.deepcopy(self.mostPriorVehicle))
                 self.mostPriorVehicle = vehicle
                 self.vehicles[0] = vehicle
             else:
                 self.vehicles.append(vehicle)
             self.upArrange(self.noOfCars-1)
+
+        for cars in self.vehicles:
+            print(cars.timeToBeInParkingLot,cars.requiredPower)
+
+
+    def removeTheMostPriorVehicle(self):
+        self.noOfCars -= 1
+        if(self.noOfCars<0):
+            self.noOfCars=0
+
+        if(len(self.vehicles)<2):
+            self.vehicles=[]
+        else:
+            self.vehicles[0]=self.vehicles[-1]
+            self.vehicles=self.vehicles[0:len(self.vehicles)-1]
+            self.downArrange()
+
+        self.assignMostPriorVehicle()
+        for cars in self.vehicles:
+            print(cars.timeToBeInParkingLot,cars.requiredPower)
+
     def upArrange(self,index):
         if(index!=0):
             parentIndex=index//2
@@ -89,12 +113,20 @@ if __name__ == '__main__':
     v2=vehicle(1,1,20,20)
     v3=vehicle(1,1,5,20)
     v4=vehicle(1,1,3,20)
+    # v31 = vehicle(1, 1, 0, 20)
+    v41 = vehicle(1, 1, 2, 20)
     park=arrange()
     park.addVehicle(v1)
     park.addVehicle(v2)
     park.addVehicle(v3)
     park.addVehicle(v4)
+    # park.addVehicle(v31)
+    park.addVehicle(v41)
 
+    t=[]
+    for x in park.vehicles:
+        t.append(x.timeToBeInParkingLot)
+    print(t)
 
 
 

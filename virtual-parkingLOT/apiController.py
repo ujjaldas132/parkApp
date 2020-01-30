@@ -106,6 +106,7 @@ if __name__ == '__main__':
     i=controller.newCarArrived()
     j=controller.newCarArrived()
     k=controller.newCarArrived()
+    print(controller.carsAvailbility)
 
     # @controller.api.app.route("/")
     # @controller.api.app.route("/home")
