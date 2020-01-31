@@ -1,6 +1,6 @@
 from vehicle import vehicle
 from vehicleArrange import *
-from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar
+from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar,getSpecificSpotDetails,updateSpecificSpotDetails
 import time
 
 
@@ -12,10 +12,13 @@ class timeMangement:
         self.vehicle=None
         self.powerRequirement=None
         self.finishedChargingIndicator=False
+        self.spotSpecificStatus=getSpecificSpotDetails(None)
+
     def charging(self,timeToStay=4):
         self.vehicle=self.arrangeObj.getMostPriorVehicle()
         if self.vehicle !=None:
             self.powerRequirement=self.vehicle.requiredPower
+            self.spotSpecificStatus[self.vehicle.parkingSpotId]="c"
 
             # charge the car here
             # add a delayy time based on the poweravailable and power requirement
@@ -46,6 +49,7 @@ class timeMangement:
 
             # after charging complete
             if(chargingTime-timeFactor==0):
+                self.spotSpecificStatus[self.vehicle.parkingSpotId] = "f"
                 self.arrangeObj.removeTheMostPriorVehicle()
 
                 print("charge ho gaya bro")
@@ -58,8 +62,7 @@ class timeMangement:
                     newCarStatusData[str(i+1)]=str(self.CarAvailableStatus[i])
                 updateTheCarAvailableStatus(newCarStatusData)
 
-
-
+            updateSpecificSpotDetails(None, self.spotSpecificStatus)
             if(timeToStay>0):
                 self.charging(timeToStay)
 

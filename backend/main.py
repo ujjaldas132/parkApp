@@ -18,6 +18,9 @@ class controller:
 
 
     def extractTheCarAvailableStatus(self):
+        if self.CarAvailableStatus==[]:
+            for keys in self.timeRecorder.spotSpecificStatus.keys():
+                self.timeRecorder.spotSpecificStatus[keys]="u"
         self.vehicleArrangement.clearPreviousData()
         data=getTheCarAvailableStatus()
         self.CarAvailableStatus=data
@@ -26,6 +29,7 @@ class controller:
 
         for index in range(self.totalNumberOfParkingspot):
             if not self.CarAvailableStatus[index]:
+                self.timeRecorder.spotSpecificStatus[str(index+1)]="n"
                 self.getTheDetailOfParkedCar(index+1)
                 self.carParkedToCharge=True
         if(self.carParkedToCharge):
