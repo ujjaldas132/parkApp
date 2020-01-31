@@ -13,6 +13,12 @@ class arrange:
         self.mostPriorVehicle=None
         self.chargedVehicles=[]
         self.noOfCars=0
+    def clearPreviousData(self):
+        print("clear previous Data")
+        self.vehicles = []
+        self.mostPriorVehicle = None
+        self.chargedVehicles = []
+        self.noOfCars = 0
 
     def getMostPriorVehicle(self):
         if self.mostPriorVehicle!=None:

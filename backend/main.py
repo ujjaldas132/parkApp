@@ -3,6 +3,7 @@ from vehicle import vehicle
 from vehicleArrange import arrange
 from timeManagement import timeMangement
 from firebase import getTheCarAvailableStatus,extractTheDetailOfParkedCar
+import schedule,time
 
 
 class controller:
@@ -10,12 +11,14 @@ class controller:
         self.vehicleArrangement=arrange()
         self.timeRecorder=timeMangement(self.vehicleArrangement)
         self.CarAvailableStatus=[]
-        self.extractTheCarAvailableStatus()
+
         self.totalNumberOfParkingspot=0
         self.carParkedToCharge=False
+        self.extractTheCarAvailableStatus()
 
 
     def extractTheCarAvailableStatus(self):
+        self.vehicleArrangement.clearPreviousData()
         data=getTheCarAvailableStatus()
         self.CarAvailableStatus=data
         print(self.CarAvailableStatus)
@@ -36,6 +39,7 @@ class controller:
         id=data['id']
         time=data['time']
         powerLevel=data['powerLevel']
+        parkingSpotId=data['parkingSpaceId']
         self.vehicleArrangement.addVehicle(vehicle(space,id,time,powerLevel,parkingSpotId))
 
     def newVehicle(self,vehicle):
@@ -66,4 +70,7 @@ class controller:
 
 if __name__ == '__main__':
     obj=controller()
+    schedule.every(0.5).minutes.do(obj.extractTheCarAvailableStatus)
+    while True:
+        schedule.run_pending()
 #TODO: availibilty status shouls be in dictionary as some time it can crete prob due to the delay

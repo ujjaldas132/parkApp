@@ -1,6 +1,6 @@
 from vehicle import vehicle
 from vehicleArrange import *
-from firebase import updateTheCarAvailableStatus
+from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar
 import time
 
 
@@ -12,7 +12,7 @@ class timeMangement:
         self.vehicle=None
         self.powerRequirement=None
         self.finishedChargingIndicator=False
-    def charging(self):
+    def charging(self,timeToStay=4):
         self.vehicle=self.arrangeObj.getMostPriorVehicle()
         if self.vehicle !=None:
             self.powerRequirement=self.vehicle.requiredPower
@@ -25,12 +25,25 @@ class timeMangement:
             timeFactor=1
             if(1>=chargingTime):
                 timeFactor=chargingTime
+            if(timeFactor>timeToStay):
+                timeFactor=timeToStay
+            timeToStay-=timeFactor
 
             print("time required to charge",chargingTime,"next time of charging ",chargingTime-timeFactor)
             time.sleep(timeFactor)
 
             self.vehicle.powerLevel=self.vehicle.powerLevel+(timeFactor*self.curPowerCapacity)
             self.vehicle.requiredPower-=timeFactor*self.curPowerCapacity
+
+            # update information of the car in the cloud
+            informationDataMap = {}
+            informationDataMap['space'] = self.vehicle.space
+            informationDataMap['id'] = self.vehicle.id
+            informationDataMap['time'] = self.vehicle.timeToBeInParkingLot
+            informationDataMap['powerLevel'] = self.vehicle.powerLevel
+            informationDataMap['parkingSpaceId'] = self.vehicle.parkingSpotId
+            updateTheDetailOfParkedCar(informationDataMap['parkingSpaceId'],informationDataMap)
+
             # after charging complete
             if(chargingTime-timeFactor==0):
                 self.arrangeObj.removeTheMostPriorVehicle()
@@ -44,7 +57,11 @@ class timeMangement:
                 for i in range(len(self.CarAvailableStatus)):
                     newCarStatusData[str(i+1)]=str(self.CarAvailableStatus[i])
                 updateTheCarAvailableStatus(newCarStatusData)
-            self.charging()
+
+
+
+            if(timeToStay>0):
+                self.charging(timeToStay)
 
 
             # after one count of time

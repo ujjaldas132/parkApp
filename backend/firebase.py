@@ -63,8 +63,9 @@ def updateTheDetailOfParkedCar(parkingSpotId,data):
 
 
 if __name__ == '__main__':
-    data={'space': '5','id': 'AS6984','time': '12','powerLevel': '50'}
+    data={'space': '5','id': 'AS6984','time': '12','powerLevel': '50','parkingSpaceId':"None"}
     for i in range(1,9):
         data['time']=randint(10,30)
         data['powerLevel'] = randint(50, 100)
+        data['parkingSpaceId']=str(i)
         updateTheDetailOfParkedCar(i,data)

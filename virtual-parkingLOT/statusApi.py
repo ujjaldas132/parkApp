@@ -14,13 +14,15 @@ CORS(app)
 def hello():
 	data={}
 	totalNumberOfSpots=8
-	for spotId in range(1,totalNumberOfSpots+1):
-		tdata=getSpecificSpotDetails(spotId)
-		data[str(spotId)] = tdata[str(spotId)]
+	# for spotId in range(1,totalNumberOfSpots+1):
+	# 	tdata=getSpecificSpotDetails(spotId)
+	# 	data[str(spotId)] = tdata[str(spotId)]
 		# with open('parkingSpotStatusPickles/'+str(i)+'.pickle', 'rb') as handle:
 		# 	tdata=pickle.load(handle)
 		# 	data[str(i)] = tdata[str(i)]
-		# 	print(data)
+		# print(data)
+	data = getSpecificSpotDetails(None)
+	print(data)
 	return jsonify(data)
 
 

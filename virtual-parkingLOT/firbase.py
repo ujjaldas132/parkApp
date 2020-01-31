@@ -35,11 +35,11 @@ def getTheCarAvailableStatus():
 
 
 
-def updateSpecificSpotDetails(spotId,detailData):
-    doc_ref = db.collection(u'SpecificSpotDetails').document(str(spotId))
+def updateSpecificSpotDetails(docId,detailData):
+    doc_ref = db.collection(u'SpecificSpotDetails').document(str(docId))
     doc_ref.set(detailData)
 def getSpecificSpotDetails(spotId):
-    doc_ref = db.collection(u'SpecificSpotDetails').document(str(spotId))
+    doc_ref = db.collection(u'SpecificSpotDetails').document(u'spotStatus')
 
     try:
         doc = doc_ref.get()
@@ -66,5 +66,7 @@ if __name__ == '__main__':
     getSpecificSpotDetails("1")
     # a={'1':'2','2':'3','3':'4'}
     # updateTheCarAvailableStatus(a)
-    tStatus={"5":"f"}
-    updateSpecificSpotDetails(5,tStatus)
+    tStatus={}
+    for i in range(1,9):
+        tStatus[str(i)]="f"
+    updateSpecificSpotDetails("spotStatus",tStatus)
