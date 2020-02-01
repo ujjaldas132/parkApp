@@ -1,7 +1,6 @@
-#todo: loginto the plateform
-#todo: find the empty space to charge
-#todo: update the profile if space found
-#todo: can see the status of their car
+
+#todo: can see the owner detail of the parked car
+#todo: can remove the car from the park
 
 
 import schedule
@@ -40,13 +39,16 @@ class controller:
         return extractTheDetailOfParkedCar(SpotId)
 
     def visualise(self):
-        print("Spot id \t\t CarId \t\t ")
+        print("SpotId","\t\t",'CarNo',"\t\t",'powerLevel','\t\t','time','\t\t','space',"\n")
         for index in range(self.noOfSpots):
             if(self.vehiclesOnTheParkingLots[index]):
-                print(str(index+1),"\t\t\t empty\n")
+                print(str(index+1),"\n")
             else:
                 tMap=self.spotSpecificInfo[str(index+1)]
-                print(str(index+1),"\t\t",tMap['id'],"\t\t",tMap['powerLevel'],"\n")
+                print(str(index+1),"\t\t",tMap['id'],"\t\t",tMap['powerLevel'],'\t\t',tMap['time'],'\t\t',tMap['space'],"\n")
+
+    def getOwnerInfo(self,spotid):
+        print("not complete")
 
 
 if __name__ == '__main__':
@@ -56,6 +58,12 @@ if __name__ == '__main__':
         command=int(input("enter the command to execute"))
         if command==1:
             controller.visualise()
+        if command==2:
+            parkingSpotId=int(input("enter the SpotId"))
+            if(parkingSpotId>0 and parkingSpotId+1<controller.noOfSpots):
+                controller.getOwnerInfo(parkingSpotId)
+            else:
+                print("enter an valid parking spot number")
 
 
 
