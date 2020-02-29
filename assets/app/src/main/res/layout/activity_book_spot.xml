@@ -40,22 +40,16 @@
 
 
 
-    <TextView
-        android:id="@+id/carId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CAR number"
-        android:layout_below="@+id/spotId"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="40dp"/>
-    <TextView
-        android:id="@+id/carIdValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AS O568 haha"
 
-        android:layout_alignBottom="@+id/carId"
-        android:layout_marginLeft="120dp"/>
+
+
+
+
+
+
+
+
+
 
 
 </RelativeLayout>

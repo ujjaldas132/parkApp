@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BookSpot"></activity>
+        <activity android:name=".home"></activity>
+        <activity android:name=".BookSpot" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

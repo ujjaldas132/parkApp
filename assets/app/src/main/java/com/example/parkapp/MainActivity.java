@@ -1,101 +1,57 @@
 package com.example.parkapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String name="";
-    public static String carModel="";
-    public static String CarNo="";
-    public static String place="";
-    public boolean charging= true;
-    public int batteryLevel=90;
+
+
+
+    private int splashTimeOut=4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
+        getSupportActionBar().hide(); // hide the title bar
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.activity_main);
 
 
-        // update data from the server
-        fetchdata process = new fetchdata();
-        process.execute();
+
+
+        new Handler().postDelayed(new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void run() {
+                Intent i=new Intent(MainActivity.this,home.class);
+                i.addCategory(Intent.CATEGORY_HOME);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+
+                finishAffinity();
+            }
+        },splashTimeOut);
 
 
     }
 
-    public void findSpot(View view){
-        Intent i= new Intent(this,FIND.class);
-        startActivity(i);
+
+
     }
 
 
 
-    public void bookSpot(View view){
-        Intent i= new Intent(this,BOOK.class);
-        startActivity(i);
-    }
-
-
-
-
-
-
-
-
-    public void getCarStatus(View view){
-
-
-
-//        process.execute();
-
-
-        Intent i= new Intent(this,CAR.class);
-
-
-
-
-
-
-        i.putExtra("Name",name);
-
-        i.putExtra("model",carModel);
-
-        i.putExtra("carNo",CarNo);
-        i.putExtra("charging",charging);
-        i.putExtra("batteryLevel",batteryLevel);
-
-        startActivity(i);
-    }
-
-
-
-
-
-
-
-
-    public void profile(View view){
-        Intent i;
-        i = new Intent(this,Profile.class);
-
-        i.putExtra("Name",name);
-
-        i.putExtra("Place",this.place);
-
-        i.putExtra("carNo",this.CarNo);
-
-
-        startActivity(i);
-    }
-
-
-
-}
