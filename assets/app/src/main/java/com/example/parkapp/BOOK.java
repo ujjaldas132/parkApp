@@ -13,8 +13,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -25,9 +29,13 @@ public class BOOK extends AppCompatActivity {
     public String[] arrayVehicle = new String[] {
             "MAHINDRA","Tesla","Audi e-tron"
     };
-    public String[] arraySpace= new String[] {
-            "1","3","4","7"
-    };
+//    public String[] arraySpace= new String[] {
+//            "1","2","3","4","5","6","7","8"
+//    };
+
+
+    public ArrayList<String> arraySpace=new ArrayList<>();
+
     public String[] arrayTimeHour= new String[] {
             "0","1","2","3","4","5","6","7","8","9","10","11","12"
     };
@@ -37,6 +45,8 @@ public class BOOK extends AppCompatActivity {
     public HashMap<String,String> spaceMap= new HashMap<String, String>();
     public Spinner sp,timesp,timespMin;
     public TextView spacedisp;
+    public HashMap<String,Object> preSpotStatus= new HashMap<>();
+    int totalSpots=8;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -49,7 +59,7 @@ public class BOOK extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
         spaceMap.put("MAHINDRA","4");spaceMap.put("Tesla","3");spaceMap.put("Audi e-tron","3");
-
+        getPreviousVehicleStatus();
 
 
 
@@ -92,11 +102,7 @@ public class BOOK extends AppCompatActivity {
         spacedisp.setText(spaceMap.get(selectedVehicle));
 
 
-       sp = (Spinner) findViewById(R.id.selectSpace);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpace);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(adapter1);
+//       space array is assigned after getting the previous status
 
 
 
@@ -171,11 +177,12 @@ public class BOOK extends AppCompatActivity {
     }
 
     private void changeTheSpotStatus(String spotId){
-        HashMap<String,String> statusMap=new HashMap<>();
-        statusMap.put(spotId,"True");
+//        HashMap<String,String> statusMap=new HashMap<>();
+//        statusMap.put(spotId,"True");
+        preSpotStatus.put(spotId,"False");
 
-        db.collection("carSpotsStatus").document(spotId)
-                .set(statusMap)
+        db.collection("carSpotsStatus").document("currentStatus")
+                .set(preSpotStatus)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -192,6 +199,49 @@ public class BOOK extends AppCompatActivity {
                 });
 
         //TODO: also check the status for the charging neutral, discharging
+    }
+
+
+
+    public void getPreviousVehicleStatus(){
+
+
+        DocumentReference docRef = db.collection("carSpotsStatus").document("currentStatus");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Tag", "DocumentSnapshot data: " + document.getData());
+                        preSpotStatus=(HashMap<String, Object>) document.getData();
+                        getAndAssignTheFreeSpots();
+                    } else {
+                        Log.d("TAG", "No such document");
+                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Log.d("TAG", "get failed with ", task.getException());
+                    Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void getAndAssignTheFreeSpots(){
+
+        for(int i=1;i<=totalSpots;i++){
+            if(((String)preSpotStatus.get(String.valueOf(i))).equals("True")){
+                arraySpace.add(String.valueOf(i));
+            }
+        }
+
+        sp = (Spinner) findViewById(R.id.selectSpace);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpace);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp.setAdapter(adapter1);
+
     }
 
 
