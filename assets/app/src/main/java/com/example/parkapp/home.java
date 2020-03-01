@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import static android.widget.Toast.LENGTH_LONG;
+import static com.example.parkapp.userDetails.userdata.*;
 
 public class home extends AppCompatActivity {
 
@@ -18,13 +19,16 @@ public class home extends AppCompatActivity {
     public boolean charging= true;
     public int batteryLevel=90;
 
+    public static String userMobNo="9583222425";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
 
-        Toast.makeText(getApplicationContext(),"i am here", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"LOGIN Successfully", Toast.LENGTH_SHORT).show();
+        com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
 
         // update data from the server
 //        fetchdata process = new fetchdata();

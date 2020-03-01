@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.parkapp.userDetails.userdata;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,9 +30,7 @@ public class BOOK extends AppCompatActivity {
     public String[] arrayVehicle = new String[] {
             "MAHINDRA","Tesla","Audi e-tron"
     };
-//    public String[] arraySpace= new String[] {
-//            "1","2","3","4","5","6","7","8"
-//    };
+
 
 
     public ArrayList<String> arraySpace=new ArrayList<>();
@@ -137,7 +136,7 @@ public class BOOK extends AppCompatActivity {
     public void bookTheSpot(View view){
         String spotId=sp.getSelectedItem().toString();
         String parkingTime=String.valueOf(Integer.valueOf(timespMin.getSelectedItem().toString())+(60*Integer.valueOf(timesp.getSelectedItem().toString())));
-        String carId="XXXXXXX";
+        String carId=userdata.carId;
         String powerLevel="240";
         String fullPowerLevel="1200";
 
@@ -188,6 +187,7 @@ public class BOOK extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
                         Log.d("TAG", "DocumentSnapshot successfully written!");
+                        updateUserInfo();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -241,6 +241,93 @@ public class BOOK extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, arraySpace);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adapter1);
+
+
+
+    }
+
+
+
+
+    private void updateUserInfo(){
+
+
+
+
+
+
+        String timeNow=String.valueOf(java.time.LocalTime.now());
+        String[] tArray=timeNow.split(":");
+        int h=Integer.valueOf(tArray[0]);
+        int m=Integer.valueOf(tArray[1]);
+
+        int newH=h+Integer.valueOf(timesp.getSelectedItem().toString());
+        int newM=m+Integer.valueOf(timespMin.getSelectedItem().toString());
+
+        if(newM>=60){
+            newM=newM-60;
+            newH=newH+1;
+        }
+
+
+        String dateToday=String.valueOf(java.time.LocalDate.now());
+        String[] dArray=dateToday.split("-");
+        int day=Integer.valueOf(dArray[2]);
+        int month=Integer.valueOf(dArray[1]);
+        int year=Integer.valueOf(dArray[0]);
+        int newDay=day,newMonth=month,newYear=year;
+        if(newH>=24){
+            newDay=day+1;
+            if(newDay>30){
+                newDay=1;
+                newMonth=newMonth+1;
+                if(newMonth>12){
+                    newMonth=1;
+                    newYear=newYear+1;
+
+                }
+            }
+        }
+
+
+        String lastParkedDate= String.format("%s-%s-%s", String.valueOf(year), String.valueOf(month), String.valueOf(day));//String.valueOf(java.time.LocalDate.now());
+        String expectedRecievingDate=String.format("%s-%s-%s", String.valueOf(newYear), String.valueOf(newMonth), String.valueOf(newDay));//String.valueOf(java.time.LocalDate.now());
+        String lastParkedTime=String.format("%s::%s", String.valueOf(h), String.valueOf(m));//String.valueOf(java.time.LocalTime.now());
+        String expectedRecievingTime=String.format("%s::%s", String.valueOf(newH), String.valueOf(newM));//String.valueOf(java.time.LocalTime.now());
+
+
+
+
+
+
+        userdata.userPrevDetailsMap.put("lastParkedDate",lastParkedDate);
+        userdata.userPrevDetailsMap.put("lastParkedTime",lastParkedTime);
+        userdata.userPrevDetailsMap.put("expectedRecievingDate",expectedRecievingDate);
+        userdata.userPrevDetailsMap.put("expectedRecievingTime",expectedRecievingTime);
+
+
+
+
+
+        db.collection("users").document(com.example.parkapp.home.userMobNo)
+                .set(userdata.userPrevDetailsMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
+
+                        userdata.updateTheUserData();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error writing document", e);
+                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                    }
+                });
+
 
     }
 

@@ -177,6 +177,8 @@
         android:layout_below="@+id/lastCharged"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="150dp"/>
+
+
     <TextView
         android:id="@+id/parkedDate"
         android:layout_width="wrap_content"
