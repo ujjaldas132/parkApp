@@ -26,7 +26,7 @@
         android:text="Select Vehicle"
         android:layout_below="@id/header"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="40dp"
         />
     <Spinner
         android:id="@+id/selectVehicle"
@@ -48,7 +48,7 @@
         android:text="Space Require"
         android:layout_below="@id/selectVehicle"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="40dp"
         />
     <TextView
         android:id="@+id/spaceRequiredValue"
@@ -68,10 +68,10 @@
         android:id="@+id/space"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Space"
+        android:text="Select Spot"
         android:layout_below="@id/spaceRequiredValue"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="40dp"
         />
     <Spinner
         android:id="@+id/selectSpace"
@@ -93,15 +93,25 @@
         android:text="Estimated Time"
         android:layout_below="@id/selectSpace"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="40dp"
         />
     <Spinner
-        android:id="@+id/timeValue"
-        android:layout_width="match_parent"
+        android:id="@+id/timeValueHour"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/selectSpace"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="180dp"
+        android:layout_marginLeft="200dp"
+        />
+
+    <Spinner
+        android:id="@+id/timeValueMin"
+        android:layout_toRightOf="@+id/timeValueHour"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectSpace"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         />
 
 
@@ -113,16 +123,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Estimated Cost"
-        android:layout_below="@id/timeValue"
+        android:layout_below="@id/time"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="40dp"
         />
     <TextView
         android:id="@+id/costValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="XX.XX"
-        android:layout_below="@id/timeValue"
+        android:layout_below="@id/time"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="200dp"
         />
@@ -136,7 +146,8 @@
         android:text="BOOK"
         android:layout_below="@id/costValue"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="170dp"/>
+        android:layout_marginLeft="170dp"
+        android:onClick="bookTheSpot"/>
 
 
 </RelativeLayout>
