@@ -141,16 +141,16 @@ public class FIND extends AppCompatActivity {
         pbtn.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         newbtn.setLayoutParams(pbtn);
         if(clickAble)
-        newbtn.setText("Free");
-        else newbtn.setText("Occupied");
+        newbtn.setText("Occupied");
+        else newbtn.setText("Free");
 
 
             final Boolean finalClickAble = clickAble;
             newbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(finalClickAble){
-                    Intent i= new Intent(FIND.this,BookSpot.class);
+                if(!finalClickAble){
+                    Intent i= new Intent(FIND.this,BOOK.class);
                     i.putExtra("spotId",(String)detailsData.get(key));
                     startActivity(i);
                 }
@@ -174,7 +174,11 @@ public class FIND extends AppCompatActivity {
     }
 
 
+public void toBook(View view){
+    Intent i= new Intent(FIND.this,BOOK.class);
 
+    startActivity(i);
+}
 
 
 }

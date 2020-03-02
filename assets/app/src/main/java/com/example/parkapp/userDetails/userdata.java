@@ -39,6 +39,7 @@ public class userdata {
 
                     } else {
                         Log.d("TAG", "No such document");
+                        com.example.parkapp.userDetails.createNewUser.create();
 //                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
                     }
                 } else {

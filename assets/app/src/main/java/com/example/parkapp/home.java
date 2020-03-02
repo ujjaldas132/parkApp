@@ -19,7 +19,8 @@ public class home extends AppCompatActivity {
     public boolean charging= true;
     public int batteryLevel=90;
 
-    public static String userMobNo="9583222425";
+    public static String userMobNo="1";
+//    public static String userMobNo="9583222425";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

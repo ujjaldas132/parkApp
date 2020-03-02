@@ -3,12 +3,14 @@ package com.example.parkapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -242,6 +244,13 @@ public class BOOK extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adapter1);
 
+        if(arraySpace.size()==0){
+            Button bookBtn=(Button)findViewById(R.id.book);
+            bookBtn.setClickable(false);
+            bookBtn.setText("NO Spot");
+            bookBtn.setBackgroundColor(Color.RED);
+        }
+
 
 
     }
@@ -304,6 +313,7 @@ public class BOOK extends AppCompatActivity {
         userdata.userPrevDetailsMap.put("lastParkedTime",lastParkedTime);
         userdata.userPrevDetailsMap.put("expectedRecievingDate",expectedRecievingDate);
         userdata.userPrevDetailsMap.put("expectedRecievingTime",expectedRecievingTime);
+        userdata.userPrevDetailsMap.put("spotId",sp.getSelectedItem().toString());
 
 
 

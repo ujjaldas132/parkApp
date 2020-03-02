@@ -12,6 +12,7 @@ import static com.example.parkapp.userDetails.userdata.*;
 
 public class CAR extends AppCompatActivity {
 
+    public static TextView BatteryChargingStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,9 @@ public class CAR extends AppCompatActivity {
         charge.setChecked(chargingStatus);
 
 
+        TextView spotIDValue=(TextView)findViewById(R.id.SPOTIDvalue);
+        spotIDValue.setText(spotId);
+
 
 
         int battaryLevel= dataFromIntent.getInt("batteryLevel");
@@ -59,6 +63,13 @@ public class CAR extends AppCompatActivity {
 
         TextView expectedTimeParkedDate=(TextView)findViewById(R.id.DeliveryDateValue);
         expectedTimeParkedDate.setText(expectedRecievingDate);
+
+
+
+        //charging status
+        // will be update from outside just try
+        BatteryChargingStatus=(TextView)findViewById(R.id.statusValue);
+        com.example.parkapp.userDetails.carChargingStatus.getChargingStatus(spotId);
 
 
 
