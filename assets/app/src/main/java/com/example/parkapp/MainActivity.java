@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void run() {
-                Intent i=new Intent(MainActivity.this,home.class);
+                Intent i=new Intent(MainActivity.this,userLogin.class);
                 i.addCategory(Intent.CATEGORY_HOME);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);

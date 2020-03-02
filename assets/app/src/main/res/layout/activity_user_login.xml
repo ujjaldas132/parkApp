@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userLogin">
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="-50dp">
+
+
+
+        <TextView
+            android:id="@+id/mobNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="55dp"
+            android:text="Mob No"
+
+            />
+
+        <EditText
+            android:id="@+id/mobNoValue"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:layout_marginTop="180dp"
+            android:layout_marginLeft="150dp"
+            android:hint="Mobile No"
+            />
+
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="password"
+            android:layout_below="@+id/mobNo"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="55dp"
+            />
+
+        <EditText
+            android:id="@+id/passwordValue"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:minEms="6"
+            android:layout_below="@+id/mobNo"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="150dp"
+            android:inputType="textPassword"
+
+            android:hint="password"
+            />
+
+
+
+
+
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+
+            android:text="Login"
+
+            android:layout_below="@+id/password"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            />
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/wantToRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_below="@+id/login"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+
+            android:text="No account Yet? Create One"
+            android:textColor="#00F"
+            android:onClick="toRegister"
+            />
+
+
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="#0BADAD"
+        android:indeterminateTintMode="src_in"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+
+</RelativeLayout>

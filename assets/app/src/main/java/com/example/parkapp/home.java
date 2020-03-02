@@ -28,6 +28,9 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
+        Intent intent = getIntent();
+        userMobNo=intent.getStringExtra("userMobNo");
+
         Toast.makeText(getApplicationContext(),"LOGIN Successfully", Toast.LENGTH_SHORT).show();
         com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
 
