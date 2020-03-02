@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BOOK">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/headerLay"
+    android:background="#F6DEB5">
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
@@ -15,6 +19,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="90dp"
         />
+</RelativeLayout>
 
 
 
@@ -24,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Vehicle"
-        android:layout_below="@id/header"
+        android:layout_below="@id/headerLay"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="40dp"
         />
@@ -32,7 +37,7 @@
         android:id="@+id/selectVehicle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header"
+        android:layout_below="@id/headerLay"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="180dp"
         />
@@ -146,7 +151,7 @@
         android:text="BOOK"
         android:layout_below="@id/costValue"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="170dp"
+        android:layout_marginLeft="140dp"
         android:onClick="bookTheSpot"/>
 
 

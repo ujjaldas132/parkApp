@@ -39,6 +39,7 @@ public class CAR extends AppCompatActivity {
         Boolean chargingStatus = status.equals("c");
         CheckBox charge= (CheckBox) findViewById(R.id.chargingStatus);
         charge.setChecked(chargingStatus);
+        charge.setClickable(false);
 
 
         TextView spotIDValue=(TextView)findViewById(R.id.SPOTIDvalue);

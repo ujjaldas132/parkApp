@@ -7,12 +7,21 @@
     tools:context=".CAR">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#D5B7E4"
+    android:paddingTop="1dp"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/yourCar"
+            android:background="#F6DEB5">
     <TextView
-        android:id="@+id/yourCar"
+        android:id="@+id/yourCarVAl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="YOUR CAR"
@@ -21,6 +30,7 @@
         android:layout_marginLeft="90dp"
 
          />
+        </RelativeLayout>
 
 
 
@@ -31,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
+        android:textStyle="bold"
         android:layout_below="@+id/yourCar"
         android:layout_marginTop="35dp"
         android:layout_marginLeft="90dp"
@@ -56,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Model"
+        android:textStyle="bold"
         android:layout_below="@+id/nameValue"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"
@@ -83,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CarNo"
+        android:textStyle="bold"
         android:layout_below="@+id/modelValue"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"
@@ -109,6 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Parked"
+        android:textStyle="bold"
         android:layout_below="@+id/carNoValue"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"/>
@@ -129,6 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SPOTID"
+            android:textStyle="bold"
             android:layout_below="@+id/charging"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="90dp"/>
@@ -153,6 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Charging"
+            android:textStyle="bold"
             android:layout_below="@+id/SpotID"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="90dp"/>
@@ -179,6 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Battery"
+        android:textStyle="bold"
         android:layout_below="@+id/status"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"/>
@@ -207,6 +224,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Last charged"
+        android:textStyle="bold"
         android:layout_below="@+id/batteryLevel"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"/>
@@ -215,6 +233,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time"
+        android:textStyle="bold"
         android:layout_below="@+id/lastCharged"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="90dp"/>
@@ -233,6 +252,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
+        android:textStyle="bold"
         android:layout_below="@+id/parkedTime"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="90dp"/>
@@ -256,6 +276,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Expected Delivery"
+        android:textStyle="bold"
         android:layout_below="@+id/parkedDateValue"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="90dp"/>
@@ -264,6 +285,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time"
+        android:textStyle="bold"
         android:layout_below="@+id/expectedDelivery"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="90dp"/>
@@ -280,6 +302,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
+        android:textStyle="bold"
         android:layout_below="@+id/DeliveryTime"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="90dp"/>

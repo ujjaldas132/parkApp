@@ -104,7 +104,8 @@ public class FIND extends AppCompatActivity {
                 RelativeLayout.LayoutParams.WRAP_CONTENT
 
         );
-        params.setMargins(0,35,0,2);
+        params.setMargins(0,20,0,2);
+        newLayout.setBackgroundColor(Color.parseColor("#046AFC"));
         newLayout.setLayoutParams(params);
 
 
@@ -119,6 +120,10 @@ public class FIND extends AppCompatActivity {
             SpotName.setTextColor(Color.BLACK);
             SpotName.setText("PARKING SPOT NUMBER "+key);
             SpotName.setId(1);
+            SpotName.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            p1.setMargins(0,45,0,0);
+
+
 
         TextView newPrice = new TextView(this);
         newPrice.setId(2);
@@ -135,7 +140,7 @@ public class FIND extends AppCompatActivity {
 
 
         final Button newbtn = new Button(this);
-        RelativeLayout.LayoutParams pbtn = new RelativeLayout.LayoutParams(new LinearLayout.LayoutParams(300,100));
+        RelativeLayout.LayoutParams pbtn = new RelativeLayout.LayoutParams(new LinearLayout.LayoutParams(300,150));
 //            pbtn.width = 10;
 //            pbtn.width= new RelativeLayout.LayoutParams(10);
         pbtn.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
