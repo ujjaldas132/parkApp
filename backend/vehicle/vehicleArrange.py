@@ -114,6 +114,45 @@ class arrange:
                 return
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     v1=vehicle(1,1,1,20)
     v2=vehicle(1,1,20,20)
@@ -133,6 +172,7 @@ if __name__ == '__main__':
     for x in park.vehicles:
         t.append(x.timeToBeInParkingLot)
     print(t)
+    vehicle()
 
 
 

@@ -4,13 +4,14 @@ powerInletCapacityData={1:2,2:4,3:6,4:10,5:15}
 fullPowerLevelData={1:200,2:400,3:600,4:1000,5:1300}
 
 class vehicle:
-    def __init__(self,space,id,time,powerLevel,parkingSpotId):
+    def __init__(self,space,id,time,powerLevel,parkingSpotId=None):
         """
 
         :param space: Space Required to parked
         :param id: carNumber
         :param time: timeToBeInParkingLot
         :param powerLevel: currentPowerLevel
+        :param parkingSpotId: parkingSpotId none if not allocate then update when it is updated
         """
         self.space=int(space)
         self.id=id

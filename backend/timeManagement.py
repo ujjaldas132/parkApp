@@ -1,5 +1,5 @@
 from vehicle import vehicle
-from vehicleArrange import *
+from vehicle.vehicleArrange import *
 from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar,getSpecificSpotDetails,updateSpecificSpotDetails
 import time
 

@@ -82,4 +82,6 @@ public class CAR extends AppCompatActivity {
         Intent i= new Intent(this,Map.class);
         startActivity(i);
     }
+
+    //TODO: if car is removed previously can update accordinly
 }

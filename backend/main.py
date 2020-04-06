@@ -1,6 +1,6 @@
 #import Section
-from vehicle import vehicle
-from vehicleArrange import arrange
+from vehicle.vehicle import vehicle
+from vehicle.vehicleArrange import arrange
 from timeManagement import timeMangement
 from firebase import getTheCarAvailableStatus,extractTheDetailOfParkedCar
 import schedule,time
