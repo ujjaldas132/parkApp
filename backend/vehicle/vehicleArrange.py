@@ -8,17 +8,25 @@ all reference will be same
 """
 
 class arrange:
-    def __init__(self):
+    def __init__(self,capacity=8,queueCapacity=1000):
         self.vehicles=[]
         self.mostPriorVehicle=None
         self.chargedVehicles=[]
         self.noOfCars=0
+        self.queue=[]
+        self.capacity=capacity
+        self.queueCapacity=queueCapacity
     def clearPreviousData(self):
         print("clear previous Data")
         self.vehicles = []
         self.mostPriorVehicle = None
         self.chargedVehicles = []
         self.noOfCars = 0
+        self.queue=[]
+
+
+
+
 
     def getMostPriorVehicle(self):
         if self.mostPriorVehicle!=None:
@@ -43,6 +51,13 @@ class arrange:
             self.mostPriorVehicle=None
     def addVehicle(self,vehicle):
         print("new vehicle aiila")
+        if self.noOfCars==self.capacity:
+            print('charging capacity is fulled')
+            if len(self.queue)<self.queueCapacity:
+                self.queue.append(vehicle)
+            else:
+                print('parking lot is also full')
+            return
         self.noOfCars+=1
         if self.mostPriorVehicle==None:
             self.mostPriorVehicle=vehicle
@@ -60,10 +75,17 @@ class arrange:
             print(cars.timeToBeInParkingLot,cars.requiredPower)
 
 
+
     def removeTheMostPriorVehicle(self):
         self.noOfCars -= 1
         if(self.noOfCars<0):
             self.noOfCars=0
+
+        if(len(self.queue)!=0):
+            tempCar=self.queue[0]
+            del self.queue[0]
+            self.noOfCars+=1
+            self.addVehicle(tempCar)
 
         if(len(self.vehicles)<2):
             self.vehicles=[]
@@ -75,6 +97,15 @@ class arrange:
         self.assignMostPriorVehicle()
         for cars in self.vehicles:
             print(cars.timeToBeInParkingLot,cars.requiredPower)
+
+
+
+
+
+
+
+
+
 
     def upArrange(self,index):
         if(index!=0):
@@ -160,6 +191,7 @@ if __name__ == '__main__':
     v4=vehicle(1,1,3,20)
     # v31 = vehicle(1, 1, 0, 20)
     v41 = vehicle(1, 1, 2, 20)
+
     park=arrange()
     park.addVehicle(v1)
     park.addVehicle(v2)
@@ -172,7 +204,6 @@ if __name__ == '__main__':
     for x in park.vehicles:
         t.append(x.timeToBeInParkingLot)
     print(t)
-    vehicle()
 
 
 
