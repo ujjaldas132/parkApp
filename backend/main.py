@@ -39,6 +39,7 @@ class controller:
     def getTheDetailOfParkedCar(self,parkingSpotId):
         data=extractTheDetailOfParkedCar(parkingSpotId)
         # {'space': '5', 'id': 'AS6984', 'time': '12', 'powerLevel': '50'}
+        print('data>>>>>>><<<<<<<<',data)
         space=data['space']
         id=data['id']
         time=data['time']
@@ -65,6 +66,13 @@ class controller:
                 requiredVehicle=chargedVehicle
                 self.vehicleArrangement.chargedVehicles.remove(chargedVehicle)
         return requiredVehicle
+
+
+
+
+
+
+
 
 
 

@@ -2,10 +2,14 @@ from vehicle import vehicle
 from vehicle.vehicleArrange import *
 from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar,getSpecificSpotDetails,updateSpecificSpotDetails
 import time
-
+'''
+there are 8 vehicle in the parking lots which has to charge 
+most  preferable always get 60% of the total supply and rest will get the rest
+sharing will be done again if required like 
+'''
 
 class timeMangement:
-    def __init__(self,arrangeObj,vehicle=None,rTime=None):
+    def __init__(self,arrangeObj,vehicle=None,rTime=None,vehicleArrangement=None):
         self.curPowerCapacity=200
         self.arrangeObj=arrangeObj
         self.CarAvailableStatus=None
@@ -13,6 +17,37 @@ class timeMangement:
         self.powerRequirement=None
         self.finishedChargingIndicator=False
         self.spotSpecificStatus=getSpecificSpotDetails(None)
+        self.vehicleArrangement=vehicleArrangement
+        self.powerArrangement=[0]*8# 8 as at a time we permit 8 car to charge
+
+
+
+    def powerDistribution(self):
+        '''
+        charging one car is not good so decide to charge a number of car
+        and distribute the power among them giving more power to the most preference car
+
+        Returns
+        -------
+        None.
+
+        '''
+        
+        if self.vehicleArrangement!=None:
+            self.powerArrangement[0]=0.6
+            noOfVehicle=self.vehicleArrangement.noOfCars
+            share=0.4/noOfVehicle
+            for i in range(noOfVehicle):
+                self.powerArrangement[i]+=share
+
+        else:
+            self.powerArrangement[0]=1
+
+
+        return
+
+
+
 
     def charging(self,timeToStay=4):
         self.vehicle=self.arrangeObj.getMostPriorVehicle()

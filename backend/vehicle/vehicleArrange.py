@@ -22,7 +22,6 @@ class arrange:
         self.mostPriorVehicle = None
         self.chargedVehicles = []
         self.noOfCars = 0
-        self.queue=[]
 
 
 
@@ -50,7 +49,7 @@ class arrange:
         else:
             self.mostPriorVehicle=None
     def addVehicle(self,vehicle):
-        print("new vehicle aiila")
+        print("new vehicle is arived")
         if self.noOfCars==self.capacity:
             print('charging capacity is fulled')
             if len(self.queue)<self.queueCapacity:
@@ -71,8 +70,8 @@ class arrange:
                 self.vehicles.append(vehicle)
             self.upArrange(self.noOfCars-1)
 
-        for cars in self.vehicles:
-            print(cars.timeToBeInParkingLot,cars.requiredPower)
+        # for cars in self.vehicles:
+        #     print(cars.timeToBeInParkingLot,cars.requiredPower)
 
 
 
