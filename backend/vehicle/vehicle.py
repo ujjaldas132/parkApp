@@ -1,10 +1,10 @@
 
 #vehiclespace to powerInletCapacity mapping
 powerInletCapacityData={1:2,2:4,3:6,4:10,5:15}
-fullPowerLevelData={1:3000,2:4000,3:6000,4:3000,5:3300}
+#todo: remove this and send the data from the cloud itself
 
 class vehicle:
-    def __init__(self,space,id,time,powerLevel,parkingSpotId=None):
+    def __init__(self,space,id,time,powerLevel,fullPowerLevel=3000,parkingSpotId=None):
         """
 
         :param space: Space Required to parked
@@ -19,9 +19,10 @@ class vehicle:
         self.timeToBeInParkingLot=int(time)
         self.timeToGetCharged=None
         self.powerLevel=int(powerLevel)
-        self.fullPowerLevel=fullPowerLevelData[self.space]
+        self.fullPowerLevel=fullPowerLevel
         self.requiredPower=self.fullPowerLevel-self.powerLevel
         self.powerInletCapacity=powerInletCapacityData[self.space]
+        self.mobNo='9583222425'
         print("Vehicle class is called ")
 
 

@@ -110,20 +110,10 @@ class timeMangement:
             # charge the car here
             # add a delayy time based on the poweravailable and power requirement
             # one car at a time
-            print("charge kar raha hu")
-            chargingTime=1*(self.vehicle.requiredPower/self.curPowerCapacity)
-            timeFactor=1
-            if(1>=chargingTime):
-                timeFactor=chargingTime
-            if(timeFactor>timeToStay):
-                timeFactor=timeToStay
-            timeToStay-=timeFactor
 
-            print("time required to charge",chargingTime,"next time of charging ",chargingTime-timeFactor)
-            time.sleep(timeFactor)
 
-            self.vehicle.powerLevel=self.vehicle.powerLevel+(timeFactor*self.curPowerCapacity)
-            self.vehicle.requiredPower-=timeFactor*self.curPowerCapacity
+            # self.vehicle.powerLevel=self.vehicle.powerLevel+(timeFactor*self.curPowerCapacity)
+            # self.vehicle.requiredPower-=timeFactor*self.curPowerCapacity
 
 
 
@@ -140,6 +130,7 @@ class timeMangement:
             #updateTheDetailOfParkedCar(informationDataMap['parkingSpaceId'],informationDataMap)
 
             # after charging complete
+            '''
             if(chargingTime-timeFactor==0):
                 #self.spotSpecificStatus[self.vehicle.parkingSpotId] = "f"
                 self.arrangeObj.removeTheMostPriorVehicle()
@@ -153,9 +144,26 @@ class timeMangement:
                 # for i in range(len(self.CarAvailableStatus)):
                 #     newCarStatusData[str(i+1)]=str(self.CarAvailableStatus[i])
                 # updateTheCarAvailableStatus(newCarStatusData)
+                '''
             #todo: check agin to update the status
             #updateSpecificSpotDetails(None, self.spotSpecificStatus)
-            if(timeToStay>0):
+            print("charge kar raha hu")
+            chargingTime = 1 * (self.vehicle.requiredPower / self.curPowerCapacity)
+            timeFactor = 1
+            if (1 >= chargingTime):
+                timeFactor = chargingTime
+            if (timeFactor > timeToStay):
+                timeFactor = timeToStay
+            # timeToStay -= timeFactor
+
+            print("time required to charge", chargingTime, "next time of charging ", chargingTime - timeFactor)
+            time.sleep(timeFactor)
+            timeToStay-=1
+            print('######################################################################################',timeToStay)
+            if(timeToStay==0 or self.arrangeObj.vehicles==[]):
+                #todo: update the information in the cloud
+                print('print update the data in the cloud\n return back to the main and collect the required data')
+            else:
                 self.charging(timeToStay)
 
 
@@ -195,6 +203,11 @@ if __name__ == '__main__':
     park.addVehicle(v4)
     # park.addVehicle(v31)
     park.addVehicle(v41)
+    park.addVehicle(v41)
+    park.addVehicle(v41)
+    park.addVehicle(v41)
+    park.addVehicle(v41)
+    park.addVehicle(v41)
 
     tm=timeMangement(park)
     tm.powerDistribution()
@@ -205,5 +218,9 @@ if __name__ == '__main__':
         t.append(x.timeToBeInParkingLot)
     print(t)
     tm.charging()
+    # tm.charging()
+    # tm.charging()
+    # tm.charging()
 
-    #
+#todo : change to recursion condition of the charging
+#idea: do somthing like constant time so that we can update the cloud at the same time
