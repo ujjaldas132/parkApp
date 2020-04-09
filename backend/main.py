@@ -5,6 +5,10 @@ from timeManagement import timeMangement
 from firebase import getTheCarAvailableStatus,extractTheDetailOfParkedCar
 import schedule,time
 
+# idea: spotstatus maintain a dictionary where you are not storing true and false store carIdentification no
+# fixme: but how to manage the collision
+# idea: another data structure is maintain first check true value again before update check true
+# error: still some collision will be there
 
 class controller:
     def __init__(self):

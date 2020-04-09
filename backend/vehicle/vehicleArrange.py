@@ -16,6 +16,7 @@ class arrange:
         self.queue=[]
         self.capacity=capacity
         self.queueCapacity=queueCapacity
+        self.doneCharging=[]
     def clearPreviousData(self):
         print("clear previous Data")
         self.vehicles = []

@@ -24,3 +24,10 @@ class vehicle:
         self.powerInletCapacity=powerInletCapacityData[self.space]
         print("Vehicle class is called ")
 
+
+    def supplyPower(self,supplyPower):
+        self.powerLevel+=supplyPower
+        if self.powerLevel>self.fullPowerLevel:
+            self.powerLevel=self.fullPowerLevel
+        self.requiredPower=self.fullPowerLevel-self.powerLevel
+
