@@ -1,7 +1,7 @@
 
 #vehiclespace to powerInletCapacity mapping
 powerInletCapacityData={1:2,2:4,3:6,4:10,5:15}
-fullPowerLevelData={1:200,2:400,3:600,4:1000,5:1300}
+fullPowerLevelData={1:3000,2:4000,3:6000,4:3000,5:3300}
 
 class vehicle:
     def __init__(self,space,id,time,powerLevel,parkingSpotId=None):

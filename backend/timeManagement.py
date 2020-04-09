@@ -77,6 +77,8 @@ class timeMangement:
         :param timeToStay:
         :return:
         '''
+
+        print('mai aya charge karne')
         self.powerDistribution()
         self.vehicle=self.arrangeObj.getMostPriorVehicle()
         if self.vehicle !=None:
@@ -88,16 +90,21 @@ class timeMangement:
             #todo: call each vehicle and give the power according to the distribution and update the details
 
             noOfVehicle = self.arrangeObj.noOfCars
+            fullyChargedCarIndex=[]
             for carIndex in range(noOfVehicle):
                 car=self.arrangeObj.vehicles[carIndex]
                 supplyPower=self.powerArrangement[carIndex]*self.curPowerCapacity
 
                 #car parmeter update
+                print(supplyPower, car.requiredPower)
                 car.supplyPower(supplyPower)
-
+                print(supplyPower,car.requiredPower)
                 # todo: if carrequired power ==0 then remove from the charnging queue add to the done queue
                 if car.requiredPower==0:
                     print('ese koi nikalo yaha se charge ho gaya hai')
+                    fullyChargedCarIndex.append(carIndex)
+
+            self.arrangeObj.carIsFullyCharged(carIndex=fullyChargedCarIndex)
 
 
             # charge the car here
@@ -173,12 +180,12 @@ class timeMangement:
 
 
 if __name__ == '__main__':
-    v1 = vehicle(1, 1, 1, 2000)
-    v2 = vehicle(1, 1, 20, 2000)
-    v3 = vehicle(1, 1, 5, 2000)
-    v4 = vehicle(1, 1, 3, 2000)
+    v1 = vehicle(1, 1, 100, 2000)
+    v2 = vehicle(1, 1, 200, 2000)
+    v3 = vehicle(1, 1, 50, 2000)
+    v4 = vehicle(1, 1, 30, 2000)
     # v31 = vehicle(1, 1, 0, 20)
-    v41 = vehicle(1, 1, 2, 2000)
+    v41 = vehicle(1, 1, 20, 2000)
 
 
     park = arrange()

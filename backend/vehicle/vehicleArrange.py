@@ -16,13 +16,43 @@ class arrange:
         self.queue=[]
         self.capacity=capacity
         self.queueCapacity=queueCapacity
-        self.doneCharging=[]
+
     def clearPreviousData(self):
         print("clear previous Data")
         self.vehicles = []
         self.mostPriorVehicle = None
         self.chargedVehicles = []
         self.noOfCars = 0
+
+
+
+
+    def carIsFullyCharged(self,carIndex: list):
+        '''
+
+        :param carIndex:  TYPE list all the indexes
+        :return:
+        '''
+        noOfcarShouldTakeFromQueue=len(carIndex)
+        tcarList = []
+        for i in range(noOfcarShouldTakeFromQueue):
+            car=self.vehicles[carIndex[i]-i]
+            self.chargedVehicles.append(car)
+            #fixme: for timebeing it is like joggar
+            #todo: update it after downArrangement
+            del self.vehicles[carIndex[i]-i]
+            if self.queue!=[]:
+                tcarList.append(self.queue[0])
+                del self.queue[0]
+
+        for car in self.vehicles:
+            tcarList.append(car)
+        self.vehicles=[]
+        self.noOfCars=0
+        for car in tcarList:
+            self.addVehicle(car)
+
+
 
 
 
@@ -118,6 +148,7 @@ class arrange:
                 self.upArrange(parentIndex)
             return
         return
+
 
     def downArrange(self):
         if self.noOfCars<1:
