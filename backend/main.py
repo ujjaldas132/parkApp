@@ -2,7 +2,7 @@
 from vehicle.vehicle import vehicle
 from vehicle.vehicleArrange import arrange
 from timeManagement import timeMangement
-from firebase import getTheCarAvailableStatus,extractTheDetailOfParkedCar
+from firebase import updateVehicleData
 import schedule,time
 
 # idea: spotstatus maintain a dictionary where you are not storing true and false store carIdentification no
@@ -39,6 +39,8 @@ class controller:
         if(self.carParkedToCharge):
             self.timeRecorder.CarAvailableStatus=self.CarAvailableStatus
             self.timeRecorder.charging()
+            #todo: when you comeout from the loop update the cloud
+            updateVehicleData.update(self.vehicleArrangement)
 
     def getTheDetailOfParkedCar(self,parkingSpotId):
         data=extractTheDetailOfParkedCar(parkingSpotId)

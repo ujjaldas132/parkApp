@@ -1,6 +1,5 @@
 from vehicle.vehicle import vehicle
 from vehicle.vehicleArrange import arrange
-from firebase import updateTheCarAvailableStatus,updateTheDetailOfParkedCar,getSpecificSpotDetails,updateSpecificSpotDetails
 import time
 '''
 there are 8 vehicle in the parking lots which has to charge 
@@ -121,30 +120,10 @@ class timeMangement:
             # I think it is not neccesary for every iteration
             # fixme: we can do it after a fixed time or charging completeion
             #idea: lets create a different data time to store some information to update info at fixed time
-            informationDataMap = {}
-            informationDataMap['space'] = self.vehicle.space
-            informationDataMap['id'] = self.vehicle.id
-            informationDataMap['time'] = self.vehicle.timeToBeInParkingLot
-            informationDataMap['powerLevel'] = self.vehicle.powerLevel
-            informationDataMap['parkingSpaceId'] = self.vehicle.parkingSpotId
-            #updateTheDetailOfParkedCar(informationDataMap['parkingSpaceId'],informationDataMap)
+
 
             # after charging complete
-            '''
-            if(chargingTime-timeFactor==0):
-                #self.spotSpecificStatus[self.vehicle.parkingSpotId] = "f"
-                self.arrangeObj.removeTheMostPriorVehicle()
-                #todo: check everythink commented to update the status in the cloud
-                print("charge ho gaya bro")
-                #allocate space space False to true
-                #self.CarAvailableStatus[int(self.vehicle.parkingSpotId)-1]=True
-                #TODO:
-                # update the status in the Cloud
-                newCarStatusData={}
-                # for i in range(len(self.CarAvailableStatus)):
-                #     newCarStatusData[str(i+1)]=str(self.CarAvailableStatus[i])
-                # updateTheCarAvailableStatus(newCarStatusData)
-                '''
+
             #todo: check agin to update the status
             #updateSpecificSpotDetails(None, self.spotSpecificStatus)
             print("charge kar raha hu")

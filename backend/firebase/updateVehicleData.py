@@ -11,8 +11,9 @@ import google
 from firebase_admin import credentials
 from firebase_admin import firestore
 from random import randint
+from firebase import credentialsFileLocation
 
-cred = credentials.Certificate("/home/ujjal/myfiles/B.Tech project/androidApp/firbase Auth/parkapp-2c28c-firebase-adminsdk-8y0q2-3afaa24130.json")
+cred = credentials.Certificate(credentialsFileLocation)
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -70,3 +71,4 @@ if __name__ == '__main__':
     v41 = vehicle(1, 1, 20, 2000)
     park=arrange()
     park.addVehicle(v41)
+    print(credentialsFileLocation)
