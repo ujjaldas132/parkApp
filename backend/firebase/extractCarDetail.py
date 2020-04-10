@@ -20,7 +20,7 @@ db = firestore.client()
 
 
 
-def extractTheDetailOfParkedCar(carID):
+def extract(carID):
     doc_ref = db.collection(u'cars').document(carID)
 
     try:

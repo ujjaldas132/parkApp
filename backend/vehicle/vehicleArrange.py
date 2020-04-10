@@ -16,6 +16,7 @@ class arrange:
         self.queue=[]
         self.capacity=capacity
         self.queueCapacity=queueCapacity
+        self.entry={}#to maintain and check which car is in the parkingLOT and update when the car leave
 
     def clearPreviousData(self):
         print("clear previous Data")
@@ -85,6 +86,7 @@ class arrange:
             print('charging capacity is fulled')
             if len(self.queue)<self.queueCapacity:
                 self.queue.append(vehicle)
+                self.entry[vehicle.id]=True
             else:
                 print('parking lot is also full')
             return
@@ -100,6 +102,7 @@ class arrange:
             else:
                 self.vehicles.append(vehicle)
             self.upArrange(self.noOfCars-1)
+        self.entry[vehicle.id] = True
 
         # for cars in self.vehicles:
         #     print(cars.timeToBeInParkingLot,cars.requiredPower)
@@ -108,6 +111,7 @@ class arrange:
 
     def removeTheMostPriorVehicle(self):
         self.noOfCars -= 1
+        del self.entry[self.mostPriorVehicle.id]
         if(self.noOfCars<0):
             self.noOfCars=0
 
