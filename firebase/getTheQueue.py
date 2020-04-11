@@ -4,7 +4,6 @@ github: ujjaldas132
 '''
 import sys, os
 # sys.path.append(os.path.abspath(os.path.join('..')))
-from venv import logger
 
 from vehicle.vehicle import vehicle
 from vehicle.vehicleArrange import arrange
@@ -17,7 +16,6 @@ from random import randint
 from firebase import credentialsFileLocation
 
 
-
 try:
     firebase_admin.get_app()
     logger.info('firebase already intialized.')
@@ -25,6 +23,11 @@ except ValueError as e:
     logger.info('firebase not initialized. initialize.')
     cred = credentials.Certificate(credentialsFileLocation)
     firebase_admin.initialize_app(cred)
+
+
+
+
+
 
 db = firestore.client()
 

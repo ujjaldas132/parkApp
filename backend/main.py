@@ -2,6 +2,8 @@
 from vehicle.vehicle import vehicle
 from vehicle.vehicleArrange import arrange
 from timeManagement import timeMangement
+import sys, os
+# sys.path.append(os.path.abspath(os.path.join('..')))
 from firebase import updateVehicleData,getTheQueue,extractCarDetail
 import schedule,time
 
@@ -29,10 +31,13 @@ class controller:
 
 
     def extractTheCarAvailableStatus(self):
+        '''
         if self.CarAvailableStatus==[]:
             for keys in self.timeRecorder.spotSpecificStatus.keys():
                 self.timeRecorder.spotSpecificStatus[keys]="u"
-        self.vehicleArrangement.clearPreviousData()
+        self.vehicleArrangement.clearPreviousData()'''
+
+        
         #data=getTheCarAvailableStatus()
         #self.CarAvailableStatus=data
         #todo:get the newly added vehicle and add to the park arrangement
@@ -40,9 +45,18 @@ class controller:
         for id in newCarIds:
             self.getAddvehicle(id)
 
-        print(self.CarAvailableStatus)
-        self.totalNumberOfParkingspot=len(self.CarAvailableStatus)
+        #print(self.CarAvailableStatus)
+        #self.totalNumberOfParkingspot=len(self.CarAvailableStatus)
 
+        #if there is any vehicle in the arranagement then only call the timemanagement
+        if self.vehicleArrangement.noOfCars:
+            self.timeRecorder.charging()
+            # when you comeout from the loop update the cloud
+            updateVehicleData.update(self.vehicleArrangement)
+            #todo: update a reference locally for the simulation
+
+
+        '''
         for index in range(self.totalNumberOfParkingspot):
             if not self.CarAvailableStatus[index]:
                 self.timeRecorder.spotSpecificStatus[str(index+1)]="n"
@@ -52,14 +66,14 @@ class controller:
             self.timeRecorder.CarAvailableStatus=self.CarAvailableStatus
             self.timeRecorder.charging()
             #todo: when you comeout from the loop update the cloud
-            updateVehicleData.update(self.vehicleArrangement)
+            updateVehicleData.update(self.vehicleArrangement)'''
 
 
     def getAddvehicle(self,id:str,attempt=3):
         data=extractCarDetail.extract(id)
         if data==None:
             if attempt:
-                self.getAddvehicle(id,attempt-1)
+                self.getAddvehicle(id,attempt-1)#error may occur due to the bad network condition so retry
         else:
             fullPowerLevel=data['fullPowerLevel']
             powerLevel=data['curPowerLevel']
@@ -84,12 +98,19 @@ class controller:
 
     def newVehicle(self,vehicle):
         '''
-        # vehicle: it is a vehicle class object
+       :parameter vehicle vrhicle class object
+
+       :return None
         '''
         self.vehicleArrangement.addVehicle(vehicle)
 
+
     def getChargingVehicle(self):
+        #useless now as at a time 8 vehicles cam be charged simultaneously
         return self.vehicleArrangement.getMostPriorVehicle()
+
+
+
     def returnVehicle(self,vehicle):
         """
         # here it is assumed that owner come to get their vehicle back after the given time
@@ -116,8 +137,9 @@ class controller:
 
 
 if __name__ == '__main__':
+    '''
     obj=controller()
     schedule.every(0.5).minutes.do(obj.extractTheCarAvailableStatus)
     while True:
-        schedule.run_pending()
+        schedule.run_pending()'''
 #TODO: availibilty status shouls be in dictionary as some time it can crete prob due to the delay

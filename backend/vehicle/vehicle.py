@@ -1,5 +1,7 @@
 
 #vehiclespace to powerInletCapacity mapping
+
+
 powerInletCapacityData={1:2,2:4,3:6,4:10,5:15}
 #todo: remove this and send the data from the cloud itself
 
@@ -31,4 +33,9 @@ class vehicle:
         if self.powerLevel>self.fullPowerLevel:
             self.powerLevel=self.fullPowerLevel
         self.requiredPower=self.fullPowerLevel-self.powerLevel
+
+
+
+if __name__ == '__main__':
+    print(checkMod.check)
 
