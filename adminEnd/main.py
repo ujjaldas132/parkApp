@@ -1,76 +1,50 @@
-
-#todo: can see the owner detail of the parked car
-#todo: can remove the car from the park
-
-
-import schedule
-from firebase import extractTheDetailOfParkedCar,getTheCarAvailableStatus
-
-
+'''
+author: Ujjal Das
+github: ujjaldas132
+'''
+from firebase import createUser
+from firebase import bookSpot
+from random import randint
 
 class controller:
-    def __init__(self):
-        self.carStatus=[]
-        self.vehiclesOnTheParkingLots=[]
-        self.noOfSpots=0
-        self.spotSpecificInfo={}
+
+    def __init__(self,carId,ownerMob):
+        self.carId=carId
+        self.ownerMob=ownerMob
+        self.fullPowerLevel=randint(3000,5000)
+        self.curPowerLevel=randint(1000,2000)
+
+    def create(self):
+        data = {}
+        data['fullPowerLevel'] = self.fullPowerLevel
+        data['curPowerLevel'] = self.curPowerLevel
+        data['ownerMob'] = self.ownerMob
+        data['carIdNumber'] = self.carId
+        createUser.create(data)
 
 
-        self.extractChargingStatus()
+    def bookSpot(self):
+        bookSpot.book(self.carId)
 
 
-    def extractChargingStatus(self):
-        self.spotSpecificInfo = {}
-        #firebase extraction function
-        self.vehiclesOnTheParkingLots=getTheCarAvailableStatus()
-        self.noOfSpots=len(self.vehiclesOnTheParkingLots)
-        for parkingSpotId in range(self.noOfSpots):
-            if not self.vehiclesOnTheParkingLots[parkingSpotId]:
-                tData=self.extractTheSpotSpecificCarDetail(str(parkingSpotId + 1))
-                self.spotSpecificInfo[str(parkingSpotId+1)]=tData
 
 
-    def extractTheSpotSpecificCarDetail(self,SpotId):
-        """
 
-        :param SpotId: String > spotId  wheere the car is parked
-        :return:
-        """
-        return extractTheDetailOfParkedCar(SpotId)
-
-    def visualise(self):
-        print("SpotId","\t\t",'CarNo',"\t\t",'powerLevel','\t\t','time','\t\t','space',"\n")
-        for index in range(self.noOfSpots):
-            if(self.vehiclesOnTheParkingLots[index]):
-                print(str(index+1),"\n")
-            else:
-                tMap=self.spotSpecificInfo[str(index+1)]
-                print(str(index+1),"\t\t",tMap['id'],"\t\t",tMap['powerLevel'],'\t\t',tMap['time'],'\t\t',tMap['space'],"\n")
-
-    def getOwnerInfo(self,spotid):
-        print("not complete")
 
 
 if __name__ == '__main__':
-    controller=controller()
-    controller.visualise()
-    while True:
-        command=int(input("enter the command to execute"))
-        if command==1:
-            controller.visualise()
-        if command==2:
-            parkingSpotId=int(input("enter the SpotId"))
-            if(parkingSpotId>0 and parkingSpotId+1<controller.noOfSpots):
-                controller.getOwnerInfo(parkingSpotId)
-            else:
-                print("enter an valid parking spot number")
-
-
-
-
-
-
-
-
-
-
+    print('admin End')
+    controller = controller('AS 02 3657','9999999999')
+    # controller = controller('AS 01 3657', '9999999999')
+    # controller = controller('AS 03 3657', '9999945999')
+    # controller = controller('AS 04 3657', '9999239999')
+    # controller = controller('AS 05 3657', '9999923999')
+    # controller = controller('AS 06 3657', '9996799999')
+    # controller = controller('AS 07 3657', '9912999999')
+    # controller = controller('AS 08 3657', '9129999999')
+    # controller = controller('AS 09 3657', '1299999999')
+    # controller = controller('AS 02 3957', '3499999999')
+    # controller = controller('AS 02 3677', '5699999999')
+    # controller = controller('AS 02 3867', '6799999999')
+    controller.create()
+    controller.bookSpot()
