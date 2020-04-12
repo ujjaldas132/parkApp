@@ -77,7 +77,7 @@ class controller:
         else:
             fullPowerLevel=data['fullPowerLevel']
             powerLevel=data['curPowerLevel']
-            status=data['status']
+            # status=data['status']
             mobNo=data['ownerMob']
             id=data['carIdNumber']
             newVeh=vehicle(space=1,id=id,time=120,powerLevel=powerLevel,fullPowerLevel=fullPowerLevel,parkingSpotId=None)
@@ -137,9 +137,9 @@ class controller:
 
 
 if __name__ == '__main__':
-    '''
+
     obj=controller()
-    schedule.every(0.5).minutes.do(obj.extractTheCarAvailableStatus)
+    schedule.every(0.1).minutes.do(obj.extractTheCarAvailableStatus)
     while True:
-        schedule.run_pending()'''
+        schedule.run_pending()
 #TODO: availibilty status shouls be in dictionary as some time it can crete prob due to the delay

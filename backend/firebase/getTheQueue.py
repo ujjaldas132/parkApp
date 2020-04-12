@@ -56,7 +56,7 @@ def getQueue():
 
     try:
         doc = doc_ref.get()
-        return doc
+        return doc.to_dict()
     except google.cloud.exceptions.NotFound:
         print(u'No such document!')
         return []

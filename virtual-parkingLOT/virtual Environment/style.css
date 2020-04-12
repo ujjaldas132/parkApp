@@ -1,0 +1,31 @@
+
+.parkingLot{
+	/*position: fixed;*/
+	/*background-color: green;*/
+	height: 100vh;
+	width: 100vw;
+}
+
+
+.charging img{
+	height:300px!important;
+	margin:20px;
+}
+
+
+
+
+
+
+
+.queueContainer{
+	/*position: absolute;*/
+	/*right:-200px;*/
+}
+
+.queue {
+    height: 90vh; /* %-height of the viewport */
+    position: fixed;
+    overflow-y: scroll;
+    float: right;
+}
