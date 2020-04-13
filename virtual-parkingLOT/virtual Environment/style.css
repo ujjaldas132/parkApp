@@ -12,7 +12,12 @@
 	margin:20px;
 }
 
+.chargingCars{
 
+	 height: 90vh; /* %-height of the viewport */
+    /*position: fixed;*/
+    overflow-y: scroll;
+}
 
 
 

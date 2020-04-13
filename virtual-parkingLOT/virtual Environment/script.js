@@ -1,6 +1,72 @@
 
+function getData(){
+    // do whatever you like here
+    const http = new XMLHttpRequest()
 
-function createChargingCars(){
+http.open("GET", "http://127.0.0.1:5000/")
+http.send()
+
+http.onload = () => {
+	// console.log(http.responseText);
+data=JSON.parse(http.responseText);
+
+// for(var key in data){
+// 	console.log(key);
+// }
+var charging=data['charging'];
+for(var key in charging){
+createChargingCars(charging[key])
+}
+
+
+var charged=data['fullyCharged'];
+for(var key in charged){
+createChargingCars(charged[key])
+}
+
+
+
+var queue=data['queue'];
+for(var key in queue){
+createQueueCars(queue[key])
+}
+
+
+
+// console.log(data['charging'])
+
+}
+
+    setTimeout(getData, 5000);
+}
+
+getData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createChargingCars(data=null){
 	var className='col-lg-3 car';
 	var div=document.createElement('div');
 	div.className=className;
@@ -18,14 +84,14 @@ var infoDev=document.createElement('div');
 infoDev.className='infoDev';
 
 var carId=document.createElement('h5');
-carId.innerHTML='AS 06 6789'
+carId.innerHTML=data['id']
 
 var fullPower=document.createElement('p');
-fullPower.innerHTML='Full power: 5000'
+fullPower.innerHTML='Full power: '+data['fullPowerLevel']
 
 
 var curPower=document.createElement('p');
-curPower.innerHTML='Cur power: 2000'
+curPower.innerHTML='Cur power: '+data['powerLevel']
 
 infoDev.appendChild(carId);
 infoDev.appendChild(fullPower);
@@ -47,7 +113,7 @@ infoDev.appendChild(curPower);
 
 
 
-function createQueueCars(){
+function createQueueCars(data=null){
 	var className='row queueCar';
 	var div=document.createElement('div');
 	div.className=className;
@@ -67,14 +133,14 @@ var infoDev=document.createElement('div');
 infoDev.className='infoDev';
 
 var carId=document.createElement('h5');
-carId.innerHTML='AS 06 6789'
+carId.innerHTML=data['id']
 
 var fullPower=document.createElement('p');
-fullPower.innerHTML='Full power: 5000'
+fullPower.innerHTML='Full power: '+data['fullPowerLevel']
 
 
 var curPower=document.createElement('p');
-curPower.innerHTML='Cur power: 2000'
+curPower.innerHTML='Cur power: '+data['powerLevel']
 
 infoDev.appendChild(carId);
 infoDev.appendChild(fullPower);
