@@ -5,16 +5,19 @@ github: ujjaldas132
 
 from flask import Flask,jsonify
 from flask_cors import CORS
+from pickleReader import reader
 
 
 
 app=Flask(__name__)
 CORS(app)
 
+reader=reader()
+
 @app.route("/")
 @app.route("/home")
 def hello():
-	data={}
+	data=reader.generator()
 
 	print(data)
 	return jsonify(data)
