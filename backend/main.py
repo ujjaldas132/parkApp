@@ -2,6 +2,7 @@
 from vehicle.vehicle import vehicle
 from vehicle.vehicleArrange import arrange
 from timeManagement import timeMangement
+from dataForEnv import generator
 import sys, os
 # sys.path.append(os.path.abspath(os.path.join('..')))
 from firebase import updateVehicleData,getTheQueue,extractCarDetail
@@ -24,7 +25,7 @@ class controller:
         self.vehicleArrangement=arrange()
         self.timeRecorder=timeMangement(self.vehicleArrangement)
         self.CarAvailableStatus=[]
-
+        self.dataForEnvGenr=generator(self.vehicleArrangement)
         self.totalNumberOfParkingspot=0
         self.carParkedToCharge=False
         self.extractTheCarAvailableStatus()
@@ -53,6 +54,7 @@ class controller:
             self.timeRecorder.charging()
             # when you comeout from the loop update the cloud
             updateVehicleData.update(self.vehicleArrangement)
+            self.dataForEnvGenr.generate()
             #todo: update a reference locally for the simulation
 
 
