@@ -16,7 +16,7 @@ class reader:
         self.chargingCars={}
         self.queueCars={}
         self.carDetails={}
-        
+
 
     def getTheFolderLocation(self):
         t=self.dir.split('/')

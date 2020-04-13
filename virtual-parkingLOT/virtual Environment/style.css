@@ -29,3 +29,55 @@
     overflow-y: scroll;
     float: right;
 }
+
+.queue img {
+	height:90px;
+	margin:20px;
+	margin-left: 50px;
+	text-align: center;
+	padding: 5px;
+}
+
+.queue h5{
+	font-size: 10px;
+	margin-left: 50px;
+}
+.queue p{
+	font-size: 7px;
+	font-weight: bolder;
+	margin-left: 50px;
+}
+
+
+.queueCar div{
+	display: none;
+}
+.queueCar:hover div{
+	display: block!important;
+}
+.queueCar:hover img{
+	height: 50px!important;
+}
+
+
+
+
+
+
+
+
+.car div{
+	display: none;
+}
+.car:hover div{
+	display: block!important;
+}
+.car:hover img{
+	height: 200px!important;
+}
+
+
+
+.infoDev{
+	text-align: center;
+}
