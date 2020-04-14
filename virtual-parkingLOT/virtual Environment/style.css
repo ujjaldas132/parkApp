@@ -1,7 +1,6 @@
 
 .parkingLot{
-	/*position: fixed;*/
-	/*background-color: green;*/
+	position: fixed;
 	height: 100vh;
 	width: 100vw;
 }
@@ -86,3 +85,26 @@
 .infoDev{
 	text-align: center;
 }
+
+
+
+
+.border{
+	border-style: solid!important;
+  border-width: medium!important;
+}
+
+
+
+.left-info-sec-container{
+	float: left;
+	margin-top: 150px;
+}
+
+/*.left-info-sec{
+	position: fixed;
+}
+*/
+/*.left-info-sec container{
+
+}*/

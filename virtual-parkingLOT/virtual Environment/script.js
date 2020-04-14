@@ -7,19 +7,30 @@ http.open("GET", "http://127.0.0.1:5000/")
 http.send()
 
 http.onload = () => {
-	// console.log(http.responseText);
+	console.log(http.responseText);
 data=JSON.parse(http.responseText);
 
 // for(var key in data){
 // 	console.log(key);
 // }
 var charging=data['charging'];
+
+var chargingEle=document.getElementsByClassName('chargingCarCount')[0];
+chargingEle.innerHTML=Object.keys(charging).length;
+
 for(var key in charging){
 createChargingCars(charging[key])
 }
 
 
+
+
+
 var charged=data['fullyCharged'];
+
+var chargedEle=document.getElementsByClassName('fullyChargedCarCount')[0];
+chargedEle.innerHTML=Object.keys(charged).length;
+
 for(var key in charged){
 createChargingCars(charged[key])
 }
@@ -27,6 +38,10 @@ createChargingCars(charged[key])
 
 
 var queue=data['queue'];
+
+var queueEle=document.getElementsByClassName('queueCarCount')[0];
+queueEle.innerHTML=Object.keys(queue).length;
+
 for(var key in queue){
 createQueueCars(queue[key])
 }
