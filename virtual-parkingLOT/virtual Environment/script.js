@@ -10,9 +10,37 @@ http.onload = () => {
 	console.log(http.responseText);
 data=JSON.parse(http.responseText);
 
-// for(var key in data){
-// 	console.log(key);
-// }
+
+
+
+
+//first remove the previously loaded views
+
+
+ var e = document.getElementsByClassName('chargingCars')[0]; 
+while (e.firstChild) {
+	console.log('hahahhahahahahahhah');
+    
+    e.removeChild(e.lastChild);
+}
+
+
+ var e = document.getElementsByClassName('queue')[0]; 
+var first = e.firstElementChild; 
+while (first) { 
+    first.remove(); 
+    first = e.firstElementChild; 
+} 
+
+
+
+
+
+
+
+
+// ------------------------------------------------
+
 var charging=data['charging'];
 
 var chargingEle=document.getElementsByClassName('chargingCarCount')[0];

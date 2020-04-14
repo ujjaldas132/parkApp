@@ -34,7 +34,7 @@ class controller:
 
 if __name__ == '__main__':
     print('admin End')
-    controller = controller('AS 02 3657','9999999999')
+    # controller = controller('AS 02 3657','9999999999')
     # controller = controller('AS 01 3657', '9999999999')
     # controller = controller('AS 03 3657', '9999945999')
     # controller = controller('AS 04 3657', '9999239999')
@@ -45,6 +45,6 @@ if __name__ == '__main__':
     # controller = controller('AS 09 3657', '1299999999')
     # controller = controller('AS 02 3957', '3499999999')
     # controller = controller('AS 02 3677', '5699999999')
-    # controller = controller('AS 02 3867', '6799999999')
+    controller = controller('AS 02 3867', '6799999999')
     controller.create()
     controller.bookSpot()
