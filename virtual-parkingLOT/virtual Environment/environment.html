@@ -13,6 +13,7 @@
 <!-- fa fa style sheet -->
 <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 
@@ -25,7 +26,7 @@
   </head>
 
 
-  <body>
+  <body >
     
 
 
@@ -129,19 +130,37 @@
 
 
 
+<!-- <script>
+function hourglass() {
+  var a;
+  a = document.getElementById("div11");
+  a.innerHTML = "&#xf251;";
+  setTimeout(function () {
+      a.innerHTML = "&#xf252;";
+    }, 1000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf253;";
+    }, 2000);
+}
+hourglass();
+setInterval(hourglass, 3000);
+</script> -->
 
 
 
 
 
+<!-- style="background-image: url('img.jpg'); height: 100vh;width: 25vw;" -->
 
-
-
-
+<!-- <img src="img.jpg" style="float:left;height: 100vh;width: 19vw;z-index: -1;"> -->
 <section class='left-info-sec' >
+
+  
 
 <div class="container lg-3 left-info-sec-container" >
     
+<!-- <div id="div11" class="fa fa-2x" style="background-color: blue;"></div> -->
+
 
 
 <div class="row mt-3 pt-3"  >
@@ -160,7 +179,10 @@
                           <!-- Text -->
                           
                           
-                          <p class="card-text blue-text"><i class="fas fa-charging-station fa-2x" aria-hidden="true" style="color:blue;"></i>
+                          <p class="card-text blue-text">
+                            <!-- <i class="fas fa-charging-station fa-2x" aria-hidden="true" style="color:blue;"></i> -->
+                            <div id="div1" class="fa fa-2x"  style="color:blue;"></div>
+
                             <span class="ml-2 chargingCarCount" id='chargingCarCount' style="font-size: 30px;">Loading....</span>
                           </p>
 
@@ -224,7 +246,9 @@
                           <!-- Text -->
                           
                           
-                          <p class="card-text blue-text"><i class="fas fa-battery-full fa-2x" aria-hidden="true" style="color:blue;"></i>
+                          <p class="card-text blue-text">
+                            <i class="fas fa-battery-full fa-2x" aria-hidden="true" style="color:blue;"></i>
+                            
                             <span class="ml-2 fullyChargedCarCount" style="font-size: 30px;">Loading....</span>
                           </p>
 
@@ -238,9 +262,12 @@
 
 
 
+<div class="loader"></div>
 
 
 </div>
+
+
 
 </section>
 
@@ -257,6 +284,27 @@
 
 
 
+<script>
+function chargebattery() {
+  var a;
+  a = document.getElementById("div1");
+  a.innerHTML = "&#xf244;";
+  setTimeout(function () {
+      a.innerHTML = "&#xf243;";
+    }, 1000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf242;";
+    }, 2000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf241;";
+    }, 3000);
+  setTimeout(function () {
+      a.innerHTML = "&#xf240;";
+    }, 4000);
+}
+chargebattery();
+setInterval(chargebattery, 5000);
+</script>
 
 
 
@@ -266,6 +314,157 @@
 
 
 
+
+
+
+<style>
+.loader {
+margin-top: 100px;
+text-align: center;
+margin-left: 50px;
+
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div  style="float:right;">
+  
+
+    <img src="img.jpg" style="width: 19vw;height:100vh;">
+
+</div> -->
+
+
+<div class='right-info'>
+
+
+  
+
+  <!-- <h1> Parking Lot</h1> -->
+
+
+
+
+
+
+
+<img src="IITBBS_logo.svg" alt="Avatar" style="width:300px;height:300px;float:bottom;position: absolute;top: 20px;right:20px;">
+<h1 style='margin-top: 400px;'> Parking Lot</h1>
+<h3 id="demo1" style="margin-top: 330px;"></h3>
+<h1 id="demo2" ></h1>
+<h2 id="demo3"></h2>
+</div>
+
+
+
+
+
+
+<script>
+var i = 0;
+
+var txt1='By';
+var txt2=' Ujjal Das';
+var txt3='Rollno: 16EE01033'
+var txt = 'Lorem ipsum dummy text blabla.';
+var l1=txt1.length;
+var l2=l1+txt2.length;
+var l3=l2+txt3.length;
+
+var speed = 30;
+
+function typeWriter() {
+  if (i < l1 ){
+    document.getElementById("demo1").innerHTML += txt1.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+
+  else if(i<l2){
+
+    document.getElementById("demo2").innerHTML += txt2.charAt(i-l1);
+    i++;
+    setTimeout(typeWriter, speed);
+
+  }
+  else if(i<l3){
+
+    document.getElementById("demo3").innerHTML += txt3.charAt(i-l2);
+    i++;
+    setTimeout(typeWriter, speed);
+
+  }
+  else if(i==l3){
+
+  
+    i++;
+    setTimeout(typeWriter, speed*15);
+
+  }
+
+
+  else{
+    i=0;
+    document.getElementById("demo1").innerHTML='';
+    document.getElementById("demo2").innerHTML='';
+    document.getElementById("demo3").innerHTML='';
+    setTimeout(typeWriter, speed);
+  }
+
+}
+
+
+typeWriter()
+</script>
 
 
 
