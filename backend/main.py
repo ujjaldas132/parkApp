@@ -82,8 +82,26 @@ class controller:
             # status=data['status']
             mobNo=data['ownerMob']
             id=data['carIdNumber']
-            newVeh=vehicle(space=1,id=id,time=120,powerLevel=powerLevel,fullPowerLevel=fullPowerLevel,parkingSpotId=None)
-            #todo add user defined time not fixed time
+
+            etime=2000
+            if 'expectedRecievingDate' in data and  'expectedRecievingTime' in data:
+                # date=yyyy-mm-dd
+                # time=hr::mm
+                # as date+time can give us the constrain so that we have a idea which  car has less time to charge
+                etime=0
+                t=data['expectedRecievingDate']
+                t=t.split('-')
+                for e in t:
+                    etime+=int(e)
+                t = data['expectedRecievingTime']
+                t = t.split('::')
+                for e in t:
+                    etime += int(e)
+
+
+
+            newVeh=vehicle(space=1,id=id,time=etime,powerLevel=powerLevel,fullPowerLevel=fullPowerLevel,parkingSpotId=None)
+            
             self.newVehicle(newVeh)
 
  

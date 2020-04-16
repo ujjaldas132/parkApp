@@ -21,7 +21,7 @@ class vehicle:
         self.timeToBeInParkingLot=int(time)
         self.timeToGetCharged=None
         self.powerLevel=int(powerLevel)
-        self.fullPowerLevel=fullPowerLevel
+        self.fullPowerLevel=int(fullPowerLevel)
         self.requiredPower=self.fullPowerLevel-self.powerLevel
         self.powerInletCapacity=powerInletCapacityData[self.space]
         self.mobNo='9583222425'
