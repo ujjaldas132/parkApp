@@ -136,11 +136,13 @@ public class BOOK extends AppCompatActivity {
 
 
     public void bookTheSpot(View view){
+
+
         String spotId=sp.getSelectedItem().toString();
         String parkingTime=String.valueOf(Integer.valueOf(timespMin.getSelectedItem().toString())+(60*Integer.valueOf(timesp.getSelectedItem().toString())));
         String carId=userdata.carId;
-        String powerLevel="240";
-        String fullPowerLevel="1200";
+        String powerLevel="800";
+        String fullPowerLevel="5000";
 
 //        data={'space': '5','id': 'AS6984','time': '12','powerLevel': '50','parkingSpaceId':"None","fullPowerlevel":"1200"}
         HashMap<String,String> dataMap= new HashMap<>();
@@ -152,9 +154,145 @@ public class BOOK extends AppCompatActivity {
         dataMap.put("fullPowerlevel",fullPowerLevel);
 
 
-        writetheCarDetail(dataMap,spotId);
+//        writetheCarDetail(dataMap,spotId);
+
+        getPrevQueue(carId,parkingTime,powerLevel,fullPowerLevel, "needtoAdd");
+    }
+
+
+
+
+
+
+    private void getPrevQueue(final String carId, final String reqTime, final String curP, final String fullP, final String OwnMob){
+
+        DocumentReference docRef = db.collection("carSpotsStatus").document("queue");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("Tag", "DocumentSnapshot data: " + document.getData());
+                        preSpotStatus=(HashMap<String, Object>) document.getData();
+                        //getAndAssignTheFreeSpots();
+                        preSpotStatus.put(carId,reqTime);
+                        fixSpotInQueue(carId,curP,fullP,OwnMob);
+
+
+                    } else {
+                        Log.d("TAG", "No such document");
+                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Log.d("TAG", "get failed with ", task.getException());
+                    Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
 
     }
+
+
+
+
+
+
+    private void fixSpotInQueue(final String carId, final String curP, final String fullP, final String OwnMob){
+        db.collection("carSpotsStatus").document("queue")
+                .set(preSpotStatus)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
+//                        changeTheSpotStatus(spotid);
+                        updateCarInfo(carId,curP,fullP,OwnMob);
+                        Toast.makeText(getApplicationContext(),"book successfully",Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error writing document", e);
+                    }
+                });
+    }
+
+
+
+
+
+
+
+
+
+    public void updateCarInfo(String carId,String curP,String fullP,String OwnMob){
+
+
+        HashMap<String,String> data =new HashMap<>();
+        data.put("carIdNumber",carId);
+        data.put("curPowerLevel",curP);
+        data.put("fullPowerLevel",fullP);
+        data.put("ownerMob",com.example.parkapp.userDetails.userdata.userMobileNo);
+        data.put("status","inQueue");
+
+
+
+        db.collection("cars").document(carId)
+                .set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
+//                        changeTheSpotStatus(spotid);
+//                        updateCarInfo(carId,curP,fullP,OwnMob);
+                        Toast.makeText(getApplicationContext(),"book successfully",Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error writing document", e);
+                    }
+                });
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void writetheCarDetail(HashMap<String, String> data, final String spotid){
 

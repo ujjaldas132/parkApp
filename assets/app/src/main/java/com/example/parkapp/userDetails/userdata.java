@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 
 public class userdata {
-    public static String name,carId,spotId,carModel,status,lastParkedDate,lastParkedTime,expectedRecievingDate,expectedRecievingTime;
+    public static String name,carId,spotId,carModel,status,lastParkedDate,lastParkedTime,expectedRecievingDate,expectedRecievingTime,userMobileNo;
 
     public static HashMap<String,Object> userPrevDetailsMap=new HashMap<>();
 
@@ -23,6 +23,7 @@ public class userdata {
 
 
     public static void getUserData(String userMobileNo){
+        userMobileNo=(String)userMobileNo;
 
         DocumentReference docRef = db.collection("users").document(userMobileNo);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

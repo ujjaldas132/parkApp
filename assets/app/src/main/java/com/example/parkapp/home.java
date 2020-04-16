@@ -32,6 +32,9 @@ public class home extends AppCompatActivity {
         userMobNo=intent.getStringExtra("userMobNo");
 
         Toast.makeText(getApplicationContext(),"LOGIN Successfully", Toast.LENGTH_SHORT).show();
+
+        com.example.parkapp.userDetails.userdata.userMobileNo=userMobNo;
+
         com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
 
         // update data from the server

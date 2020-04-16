@@ -83,20 +83,10 @@ class controller:
             mobNo=data['ownerMob']
             id=data['carIdNumber']
             newVeh=vehicle(space=1,id=id,time=120,powerLevel=powerLevel,fullPowerLevel=fullPowerLevel,parkingSpotId=None)
+            #todo add user defined time not fixed time
             self.newVehicle(newVeh)
 
-    '''
-    def getTheDetailOfParkedCar(self,parkingSpotId):
-        data=extractTheDetailOfParkedCar(parkingSpotId)
-        # {'space': '5', 'id': 'AS6984', 'time': '12', 'powerLevel': '50'}
-        print('data>>>>>>><<<<<<<<',data)
-        space=data['space']
-        id=data['id']
-        time=data['time']
-        powerLevel=data['powerLevel']
-        parkingSpotId=data['parkingSpaceId']
-        self.vehicleArrangement.addVehicle(vehicle(space,id,time,powerLevel,parkingSpotId))
-    '''
+ 
 
     def newVehicle(self,vehicle):
         '''
