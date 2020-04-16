@@ -240,6 +240,57 @@ public class BOOK extends AppCompatActivity {
 
 
 
+
+
+
+
+        String timeNow=String.valueOf(java.time.LocalTime.now());
+        String[] tArray=timeNow.split(":");
+        int h=Integer.valueOf(tArray[0]);
+        int m=Integer.valueOf(tArray[1]);
+
+        int newH=h+Integer.valueOf(timesp.getSelectedItem().toString());
+        int newM=m+Integer.valueOf(timespMin.getSelectedItem().toString());
+
+        if(newM>=60){
+            newM=newM-60;
+            newH=newH+1;
+        }
+
+
+        String dateToday=String.valueOf(java.time.LocalDate.now());
+        String[] dArray=dateToday.split("-");
+        int day=Integer.valueOf(dArray[2]);
+        int month=Integer.valueOf(dArray[1]);
+        int year=Integer.valueOf(dArray[0]);
+        int newDay=day,newMonth=month,newYear=year;
+        if(newH>=24){
+            newDay=day+1;
+            if(newDay>30){
+                newDay=1;
+                newMonth=newMonth+1;
+                if(newMonth>12){
+                    newMonth=1;
+                    newYear=newYear+1;
+
+                }
+            }
+        }
+
+
+        String lastParkedDate= String.format("%s-%s-%s", String.valueOf(year), String.valueOf(month), String.valueOf(day));//String.valueOf(java.time.LocalDate.now());
+        String expectedRecievingDate=String.format("%s-%s-%s", String.valueOf(newYear), String.valueOf(newMonth), String.valueOf(newDay));//String.valueOf(java.time.LocalDate.now());
+        String lastParkedTime=String.format("%s::%s", String.valueOf(h), String.valueOf(m));//String.valueOf(java.time.LocalTime.now());
+        String expectedRecievingTime=String.format("%s::%s", String.valueOf(newH), String.valueOf(newM));//String.valueOf(java.time.LocalTime.now());
+
+
+        data.put("expectedRecievingDate",expectedRecievingDate);
+        data.put("expectedRecievingTime",expectedRecievingTime);
+
+
+
+
+
         db.collection("cars").document(carId)
                 .set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -248,6 +299,7 @@ public class BOOK extends AppCompatActivity {
                         Log.d("TAG", "DocumentSnapshot successfully written!");
 //                        changeTheSpotStatus(spotid);
 //                        updateCarInfo(carId,curP,fullP,OwnMob);
+                        updateUserInfo();
                         Toast.makeText(getApplicationContext(),"book successfully",Toast.LENGTH_LONG).show();
                     }
                 })
@@ -263,6 +315,86 @@ public class BOOK extends AppCompatActivity {
 
 
 
+
+    private void updateUserInfo(){
+
+
+
+        String timeNow=String.valueOf(java.time.LocalTime.now());
+        String[] tArray=timeNow.split(":");
+        int h=Integer.valueOf(tArray[0]);
+        int m=Integer.valueOf(tArray[1]);
+
+        int newH=h+Integer.valueOf(timesp.getSelectedItem().toString());
+        int newM=m+Integer.valueOf(timespMin.getSelectedItem().toString());
+
+        if(newM>=60){
+            newM=newM-60;
+            newH=newH+1;
+        }
+
+
+        String dateToday=String.valueOf(java.time.LocalDate.now());
+        String[] dArray=dateToday.split("-");
+        int day=Integer.valueOf(dArray[2]);
+        int month=Integer.valueOf(dArray[1]);
+        int year=Integer.valueOf(dArray[0]);
+        int newDay=day,newMonth=month,newYear=year;
+        if(newH>=24){
+            newDay=day+1;
+            if(newDay>30){
+                newDay=1;
+                newMonth=newMonth+1;
+                if(newMonth>12){
+                    newMonth=1;
+                    newYear=newYear+1;
+
+                }
+            }
+        }
+
+
+        String lastParkedDate= String.format("%s-%s-%s", String.valueOf(year), String.valueOf(month), String.valueOf(day));//String.valueOf(java.time.LocalDate.now());
+        String expectedRecievingDate=String.format("%s-%s-%s", String.valueOf(newYear), String.valueOf(newMonth), String.valueOf(newDay));//String.valueOf(java.time.LocalDate.now());
+        String lastParkedTime=String.format("%s::%s", String.valueOf(h), String.valueOf(m));//String.valueOf(java.time.LocalTime.now());
+        String expectedRecievingTime=String.format("%s::%s", String.valueOf(newH), String.valueOf(newM));//String.valueOf(java.time.LocalTime.now());
+
+
+
+
+
+
+        userdata.userPrevDetailsMap.put("lastParkedDate",lastParkedDate);
+        userdata.userPrevDetailsMap.put("lastParkedTime",lastParkedTime);
+        userdata.userPrevDetailsMap.put("expectedRecievingDate",expectedRecievingDate);
+        userdata.userPrevDetailsMap.put("expectedRecievingTime",expectedRecievingTime);
+//        userdata.userPrevDetailsMap.put("spotId",sp.getSelectedItem().toString());
+
+
+
+
+
+        db.collection("users").document(com.example.parkapp.home.userMobNo)
+                .set(userdata.userPrevDetailsMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
+
+                        userdata.updateTheUserData();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "Error writing document", e);
+                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+    }
 
 
 
@@ -396,88 +528,7 @@ public class BOOK extends AppCompatActivity {
 
 
 
-    private void updateUserInfo(){
 
-
-
-
-
-
-        String timeNow=String.valueOf(java.time.LocalTime.now());
-        String[] tArray=timeNow.split(":");
-        int h=Integer.valueOf(tArray[0]);
-        int m=Integer.valueOf(tArray[1]);
-
-        int newH=h+Integer.valueOf(timesp.getSelectedItem().toString());
-        int newM=m+Integer.valueOf(timespMin.getSelectedItem().toString());
-
-        if(newM>=60){
-            newM=newM-60;
-            newH=newH+1;
-        }
-
-
-        String dateToday=String.valueOf(java.time.LocalDate.now());
-        String[] dArray=dateToday.split("-");
-        int day=Integer.valueOf(dArray[2]);
-        int month=Integer.valueOf(dArray[1]);
-        int year=Integer.valueOf(dArray[0]);
-        int newDay=day,newMonth=month,newYear=year;
-        if(newH>=24){
-            newDay=day+1;
-            if(newDay>30){
-                newDay=1;
-                newMonth=newMonth+1;
-                if(newMonth>12){
-                    newMonth=1;
-                    newYear=newYear+1;
-
-                }
-            }
-        }
-
-
-        String lastParkedDate= String.format("%s-%s-%s", String.valueOf(year), String.valueOf(month), String.valueOf(day));//String.valueOf(java.time.LocalDate.now());
-        String expectedRecievingDate=String.format("%s-%s-%s", String.valueOf(newYear), String.valueOf(newMonth), String.valueOf(newDay));//String.valueOf(java.time.LocalDate.now());
-        String lastParkedTime=String.format("%s::%s", String.valueOf(h), String.valueOf(m));//String.valueOf(java.time.LocalTime.now());
-        String expectedRecievingTime=String.format("%s::%s", String.valueOf(newH), String.valueOf(newM));//String.valueOf(java.time.LocalTime.now());
-
-
-
-
-
-
-        userdata.userPrevDetailsMap.put("lastParkedDate",lastParkedDate);
-        userdata.userPrevDetailsMap.put("lastParkedTime",lastParkedTime);
-        userdata.userPrevDetailsMap.put("expectedRecievingDate",expectedRecievingDate);
-        userdata.userPrevDetailsMap.put("expectedRecievingTime",expectedRecievingTime);
-        userdata.userPrevDetailsMap.put("spotId",sp.getSelectedItem().toString());
-
-
-
-
-
-        db.collection("users").document(com.example.parkapp.home.userMobNo)
-                .set(userdata.userPrevDetailsMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
-                        Log.d("TAG", "DocumentSnapshot successfully written!");
-
-                        userdata.updateTheUserData();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("TAG", "Error writing document", e);
-                        Toast.makeText(getApplicationContext(),"SomeThing went wrong",Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
-    }
 
 
 }

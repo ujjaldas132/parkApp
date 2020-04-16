@@ -43,7 +43,8 @@ public class CAR extends AppCompatActivity {
 
 
         TextView spotIDValue=(TextView)findViewById(R.id.SPOTIDvalue);
-        spotIDValue.setText(spotId);
+//        spotIDValue.setText(spotId);
+        spotIDValue.setText("no need");
 
 
 

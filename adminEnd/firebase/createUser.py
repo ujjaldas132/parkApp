@@ -37,6 +37,10 @@ def prepareCarData(car,status='check'):
     data['status'] = status
     data['ownerMob'] = car['ownerMob']
     data['carIdNumber'] = car['carIdNumber']
+    data['expectedRecievingDate']='None'
+    data['expectedRecievingTime']='None'
+    data['lastParkedDate']='None'
+    data['lastParkedTime']='None'
 
     return data
 
