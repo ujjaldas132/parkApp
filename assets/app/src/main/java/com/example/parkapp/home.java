@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 import static android.widget.Toast.LENGTH_LONG;
@@ -40,10 +43,19 @@ public class home extends AppCompatActivity {
 
         com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
 
+
+
         // update data from the server
 //        fetchdata process = new fetchdata();
 //        process.execute();
 
+        Button carStatus=(Button) findViewById(R.id.carStatus);
+        Button bookSpot=(Button) findViewById(R.id.bookSpot);
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+        carStatus.startAnimation(myAnim);
+        bookSpot.startAnimation(myAnim);
 
     }
 
@@ -110,5 +122,21 @@ public class home extends AppCompatActivity {
 
 
         startActivity(i);
+    }
+}
+
+
+class MyBounceInterpolator implements android.view.animation.Interpolator {
+    private double mAmplitude = 1;
+    private double mFrequency = 10;
+
+    MyBounceInterpolator(double amplitude, double frequency) {
+        mAmplitude = amplitude;
+        mFrequency = frequency;
+    }
+
+    public float getInterpolation(float time) {
+        return (float) (-1 * Math.pow(Math.E, -time/ mAmplitude) *
+                Math.cos(mFrequency * time) + 1);
     }
 }

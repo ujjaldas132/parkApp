@@ -70,38 +70,38 @@
 
     <Button
         android:id="@+id/bookSpot"
-        android:layout_width="150dp"
-        android:layout_height="150sp"
+        android:layout_width="175dp"
+        android:layout_height="175sp"
         android:layout_below="@+id/headerLayout"
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_bg_round"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="60dp"
 
-
+        android:interpolator="@android:anim/bounce_interpolator"
 
         android:elevation="1dp"
         android:onClick="bookSpot"
         android:text="BOOK A SPOT"
         android:foreground="?android:attr/selectableItemBackground"
-        android:textSize="40dp" />
+        android:textSize="30dp" />
+
+
 
     <Button
         android:id="@+id/carStatus"
-        android:layout_width="150dp"
-        android:layout_height="150sp"
+        android:layout_width="175dp"
+        android:layout_height="175sp"
         android:layout_below="@+id/bookSpot"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_bg_round"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="81dp"
 
-
-
+        android:background="@drawable/button_bg_round"
 
         android:onClick="getCarStatus"
         android:text="YOUR CAR"
-        android:textSize="40dp" />
+        android:textSize="30dp" />
 
 
 <!--    <at.markushi.ui.CircleButton-->
