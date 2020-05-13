@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -59,6 +61,33 @@ public class BOOK extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_book);
 
+
+
+
+
+
+        Button bookSpot=(Button) findViewById(R.id.book);
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        bookSpot.startAnimation(myAnim);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         spaceMap.put("MAHINDRA","4");spaceMap.put("Tesla","3");spaceMap.put("Audi e-tron","3");
         getPreviousVehicleStatus();
 
@@ -66,7 +95,7 @@ public class BOOK extends AppCompatActivity {
 
         Spinner s = (Spinner) findViewById(R.id.selectVehicle);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arrayVehicle);
+                R.layout.spinner_item, arrayVehicle);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
 
@@ -110,7 +139,7 @@ public class BOOK extends AppCompatActivity {
 
         timesp = (Spinner) findViewById(R.id.timeValueHour);
         ArrayAdapter<String> adaptert = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arrayTimeHour);
+                R.layout.spinner_item, arrayTimeHour);
         adaptert.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timesp.setAdapter(adaptert);
 
@@ -125,7 +154,7 @@ public class BOOK extends AppCompatActivity {
         Log.w("TAG",arrrayTimeMin.toString());
 
         ArrayAdapter<String> adaptertMin = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arrrayTimeMin);
+                R.layout.spinner_item, arrrayTimeMin);
         adaptertMin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timespMin.setAdapter(adaptertMin);
 
@@ -510,7 +539,7 @@ public class BOOK extends AppCompatActivity {
 
         sp = (Spinner) findViewById(R.id.selectSpace);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpace);
+                R.layout.spinner_item, arraySpace);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(adapter1);
 
