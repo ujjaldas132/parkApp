@@ -396,15 +396,16 @@
 
     <Button
         android:id="@+id/spot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spot your car"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:text="Spot Car"
         android:layout_below="@+id/DeliveryDateValue"
         android:layout_marginTop="25dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginLeft="160dp"
         android:onClick="spotYourCar"
         android:textColor="#FFF"
         android:textSize="15sp"
+        android:background="@drawable/button_bg_round"
         />
     </RelativeLayout>
 </ScrollView>
