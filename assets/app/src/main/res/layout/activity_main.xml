@@ -8,6 +8,16 @@
     android:background="#7B1BAA">
 
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_electric_car_2545290"
+        android:alpha="0.1"/>
+
+
+
+
+
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
@@ -45,6 +55,5 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="86dp"
         android:visibility="visible" />
-
 
 </RelativeLayout>
