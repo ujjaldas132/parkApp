@@ -11,6 +11,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.parkapp.userDetails.userdata;
+
 import static android.widget.Toast.LENGTH_LONG;
 import static com.example.parkapp.userDetails.userdata.*;
 
@@ -90,17 +92,20 @@ public class home extends AppCompatActivity {
 
 
 
+if(userdata.name!=null) {
 
+    i.putExtra("Name", name);
 
-        i.putExtra("Name",name);
+    i.putExtra("model", carModel);
 
-        i.putExtra("model",carModel);
+    i.putExtra("carNo", CarNo);
+    i.putExtra("charging", charging);
+    i.putExtra("batteryLevel", batteryLevel);
 
-        i.putExtra("carNo",CarNo);
-        i.putExtra("charging",charging);
-        i.putExtra("batteryLevel",batteryLevel);
-
-        startActivity(i);
+    startActivity(i);
+}else{
+    Toast.makeText(this,"Data is Loading please wait>>"+name, LENGTH_LONG).show();
+}
     }
 
 
