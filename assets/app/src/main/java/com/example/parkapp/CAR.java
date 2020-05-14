@@ -32,7 +32,7 @@ public class CAR extends AppCompatActivity {
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         myAnim.setInterpolator(interpolator);
         carspot.startAnimation(myAnim);
-        
+
 
 
 
