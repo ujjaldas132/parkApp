@@ -23,6 +23,18 @@ public class userdata {
 
 
     public static void getUserData(String userMobileNo){
+
+
+        name="";
+//        carId="";
+//        spotId="";
+//        carModel="";
+//        status="";
+//        lastParkedDate="";
+//        lastParkedTime="";
+//        expectedRecievingDate="";
+//        expectedRecievingTime="";
+
         userMobileNo=(String)userMobileNo;
 
         DocumentReference docRef = db.collection("users").document(userMobileNo);

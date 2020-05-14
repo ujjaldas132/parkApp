@@ -21,6 +21,8 @@ public class createNewUser {
 
     public static void create(){
 
+        carID.setLength(0);
+
         for(int i = 0; i < 2; i++) {
             char ch = (char) (Math.random() * 26 + 'A');
             carID.append(ch);
@@ -43,7 +45,8 @@ public class createNewUser {
 
 
         HashMap<String,String> userDataMap= new HashMap<>();
-        userDataMap.put("name","User User");
+        final String username="User Name";
+        userDataMap.put("name",username);
         userDataMap.put("carId",carID.toString());
         userDataMap.put("spotId","None");
         userDataMap.put("carModel","None");
@@ -61,8 +64,8 @@ public class createNewUser {
                     public void onSuccess(Void aVoid) {
 //                        Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
                         Log.d("TAG", "DocumentSnapshot successfully written!");
-                        createCar();
-                        userdata.updateTheUserData();
+                        createCar(username);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -79,7 +82,7 @@ public class createNewUser {
 
 
 
-    private static void createCar(){
+    private static void createCar(final String username){
 
         HashMap<String,String> data =new HashMap<>();
         data.put("carIdNumber",carID.toString());
@@ -96,6 +99,11 @@ public class createNewUser {
                     public void onSuccess(Void aVoid) {
 //                        Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
                         Log.d("TAG", "DocumentSnapshot successfully written!");
+//                        userdata.updateTheUserData();
+                        userdata.carId=carID.toString();
+                        userdata.userMobileNo=com.example.parkapp.home.userMobNo;
+                        userdata.name=username;
+
 
 //                        userdata.updateTheUserData();
                     }

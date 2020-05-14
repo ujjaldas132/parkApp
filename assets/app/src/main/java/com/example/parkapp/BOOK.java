@@ -62,6 +62,9 @@ public class BOOK extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
 
+        Toast.makeText(this, userdata.carId, Toast.LENGTH_LONG).show();
+
+
 
 
 
@@ -176,7 +179,7 @@ public class BOOK extends AppCompatActivity {
 //        data={'space': '5','id': 'AS6984','time': '12','powerLevel': '50','parkingSpaceId':"None","fullPowerlevel":"1200"}
         HashMap<String,String> dataMap= new HashMap<>();
         dataMap.put("space",spacedisp.getText().toString());
-        dataMap.put("id",carId);
+        dataMap.put("id",userdata.carId);
         dataMap.put("time",parkingTime);
         dataMap.put("powerLevel",powerLevel);
         dataMap.put("parkingSpaceId",spotId);
@@ -261,7 +264,7 @@ public class BOOK extends AppCompatActivity {
 
 
         HashMap<String,String> data =new HashMap<>();
-        data.put("carIdNumber",carId);
+        data.put("carIdNumber",userdata.carId);
         data.put("curPowerLevel",curP);
         data.put("fullPowerLevel",fullP);
         data.put("ownerMob",com.example.parkapp.userDetails.userdata.userMobileNo);
@@ -397,6 +400,15 @@ public class BOOK extends AppCompatActivity {
         userdata.userPrevDetailsMap.put("lastParkedTime",lastParkedTime);
         userdata.userPrevDetailsMap.put("expectedRecievingDate",expectedRecievingDate);
         userdata.userPrevDetailsMap.put("expectedRecievingTime",expectedRecievingTime);
+
+
+        userdata.userPrevDetailsMap.put("carId",userdata.carId);
+        userdata.userPrevDetailsMap.put("carModel",userdata.carModel);
+        userdata.userPrevDetailsMap.put("name",userdata.name);
+        userdata.userPrevDetailsMap.put("status","in queue");
+        userdata.userPrevDetailsMap.put("spotId","None");
+        //todo : add other details as well
+
 //        userdata.userPrevDetailsMap.put("spotId",sp.getSelectedItem().toString());
 
 

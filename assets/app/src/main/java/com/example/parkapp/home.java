@@ -39,9 +39,9 @@ public class home extends AppCompatActivity {
         Intent intent = getIntent();
         userMobNo=intent.getStringExtra("userMobNo");
 
-        Toast.makeText(getApplicationContext(),"LOGIN Successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"LOGIN Successfully"+ carId, Toast.LENGTH_SHORT).show();
 
-        com.example.parkapp.userDetails.userdata.userMobileNo=userMobNo;
+//        com.example.parkapp.userDetails.userdata.userMobileNo=userMobNo;
 
         com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
 
@@ -69,8 +69,15 @@ public class home extends AppCompatActivity {
 
 
     public void bookSpot(View view){
+
+        if( userdata.carId.length()!=0){
         Intent i= new Intent(this,BOOK.class);
-        startActivity(i);
+            startActivity(i);}
+        else{
+            Toast.makeText(this, "LOADING......!", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
 
