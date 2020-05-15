@@ -28,9 +28,12 @@ this app will have the facility of finding a spot for charging a electric car,bo
 
 
 # Example Applets
-![Splash Screen](resources/gifs/splashscreen.gif)
-![login ](resources/gifs/l2home.gif)
-![booking ](resources/gifs/booked.gif)
+
+<img src="resources/gifs/splashscreen.gif" width="200" height="400"/><img src="resources/gifs/l2home.gif" width="200" height="400"/><img src="resources/gifs/booked.gif" width="200" height="400"/><img src="resources/gifs/yourCar.gif" width="200" height="400"/>
+
+
+
+
 
 
 
