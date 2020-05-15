@@ -78,7 +78,7 @@ public class home extends AppCompatActivity {
         Intent i= new Intent(this,BOOK.class);
             startActivity(i);}
         else{
-            Toast.makeText(this, "LOADING......!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Loading.....!", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -130,11 +130,11 @@ if(userdata.name!=null) {
         Intent i;
         i = new Intent(this,Profile.class);
 
-        i.putExtra("Name",name);
+        i.putExtra("Name",userdata.name);
 
-        i.putExtra("Place",this.place);
+        i.putExtra("Place","Loading.....");
 
-        i.putExtra("carNo",this.CarNo);
+        i.putExtra("carNo", userdata.carId);
 
 
         startActivity(i);

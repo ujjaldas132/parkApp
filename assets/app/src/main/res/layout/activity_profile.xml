@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ic_undraw_new_notifications_fhvw"
+    android:alpha="0.8">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,8 +14,8 @@
         <ImageView
             android:id="@+id/header_image"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:src="@drawable/ic_launcher_background"
+            android:layout_height="80dp"
+
             android:scaleType="centerCrop"
 
             />
@@ -26,7 +28,7 @@
             android:layout_below="@+id/header_image"
             android:layout_marginTop="-80dp"
             android:layout_marginLeft="120dp"
-            android:src="@drawable/profile_pic"
+            android:src="@drawable/ic_male_avatar_323b"
             android:translationZ="90dp"
             android:scaleType="centerCrop"
             android:padding="10dp"
@@ -56,13 +58,13 @@
             <TextView
                 android:id="@+id/name"
                 android:layout_width="200dp"
-                android:layout_height="20dp"
+                android:layout_height="25dp"
                 android:text="Ujjal Das"
                 android:layout_marginLeft="180dp"
                 android:layout_marginTop="100dp"
-                android:textColor="#fff"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
 
@@ -74,10 +76,11 @@
                 android:layout_below="@+id/name"
                 android:layout_marginLeft="180dp"
                 android:layout_marginTop="0dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="10sp"
-                android:textStyle="italic"
+                android:textStyle="bold"
                 android:typeface="sans"
+                android:visibility="gone"
                 />
 
         </RelativeLayout>
@@ -104,11 +107,11 @@
                 android:layout_width="200dp"
                 android:layout_height="20dp"
                 android:text="car : "
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="80dp"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
 
@@ -117,11 +120,11 @@
                 android:layout_width="200dp"
                 android:layout_height="20dp"
                 android:text="Lamborgini"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="80dp"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
 
@@ -135,11 +138,11 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/car"
                 android:text="licenceNo : "
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
             <TextView
@@ -148,11 +151,11 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/car"
                 android:text="XXXXXXXXX"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="220dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
 
@@ -165,11 +168,11 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/licenceNo"
                 android:text="Rc No : "
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
             <TextView
@@ -178,11 +181,11 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/licenceNo"
                 android:text="XXXXXX"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="220dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
 
@@ -197,11 +200,11 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/RcNo"
                 android:text="polutuion Certificate No : "
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
                 />
             <TextView
@@ -210,12 +213,13 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/RcNo"
                 android:text="XXXXXXXX"
-                android:layout_marginLeft="130dp"
+                android:layout_marginLeft="220dp"
                 android:layout_marginTop="9dp"
-                android:textColor="#0883E6"
-                android:textSize="10sp"
-                android:textStyle="italic"
+                android:textColor="#6C63FF"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:typeface="sans"
+
                 />
 
 
