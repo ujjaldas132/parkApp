@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:indeterminateTint="#0BADAD"
         android:indeterminateTintMode="src_in"
-
+android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 

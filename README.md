@@ -19,7 +19,18 @@ this app will have the facility of finding a spot for charging a electric car,bo
 
 # Tecnology stack
 - Android 
-- SQLite 
+- firebase
+- Python
+- HTML
+- CSS
+- JavaScript
+
+
+
+# Example Applets
+![Splash Screen](resources/gifs/splashscreen.gif)
+![login ](resources/gifs/l2home.gif)
+![booking ](resources/gifs/booked.gif)
 
 
 
