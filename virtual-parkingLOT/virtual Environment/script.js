@@ -173,7 +173,7 @@ function createQueueCars(data=null){
 
 
 var infoDev=document.createElement('div');
-infoDev.className='infoDev';
+infoDev.className='infoDev row';
 
 var carId=document.createElement('h5');
 carId.innerHTML=data['id']
