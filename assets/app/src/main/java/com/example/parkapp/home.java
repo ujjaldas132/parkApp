@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -37,13 +38,17 @@ public class home extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        userMobNo=intent.getStringExtra("userMobNo");
+        userMobNo= intent.getStringExtra("userMobNo");
 
-        Toast.makeText(getApplicationContext(),"LOGIN Successfully"+ carId, Toast.LENGTH_SHORT).show();
+
+
+        Log.w("TAG", "\n\n\n\n\n\n\n\n>>>>>>>>>"+userMobNo);
 
 //        com.example.parkapp.userDetails.userdata.userMobileNo=userMobNo;
 
-        com.example.parkapp.userDetails.userdata.getUserData(userMobNo);
+        if(userMobNo!=null){
+            Toast.makeText(getApplicationContext(),"LOGIN Successfully"+ carId, Toast.LENGTH_SHORT).show();
+            com.example.parkapp.userDetails.userdata.getUserData(userMobNo);}
 
 
 

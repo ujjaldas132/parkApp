@@ -3,6 +3,7 @@ package com.example.parkapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,7 @@ public class BOOK extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
 
-        Toast.makeText(this, userdata.carId, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, userdata.carId, Toast.LENGTH_LONG).show();
 
 
 
@@ -422,6 +423,12 @@ public class BOOK extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(getApplicationContext(),"the spot is booked Successfully",Toast.LENGTH_LONG).show();
                         Log.d("TAG", "DocumentSnapshot successfully written!");
+
+                        String userMobileNo=userdata.userMobileNo;
+                        Intent i=new Intent(BOOK.this,home.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        i.putExtra("userMobNo",userMobileNo);
+                        startActivity(i);
 
                         userdata.updateTheUserData();
                     }

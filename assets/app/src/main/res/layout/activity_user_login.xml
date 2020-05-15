@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/main"
         android:layout_marginLeft="-20sp"
-        android:layout_marginTop="-50sp">
+        android:layout_marginTop="0sp">
 
 
 
@@ -22,7 +22,7 @@
             android:id="@+id/mobNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200sp"
+            android:layout_marginTop="210sp"
             android:layout_marginLeft="95sp"
             android:text="Mob No"
             android:textStyle="bold"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="phone"
-            android:layout_marginTop="185sp"
+            android:layout_marginTop="195sp"
             android:layout_marginLeft="190sp"
             android:hint="Mobile No"
             android:textStyle="bold"
