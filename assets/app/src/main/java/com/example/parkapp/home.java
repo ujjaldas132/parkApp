@@ -53,11 +53,15 @@ public class home extends AppCompatActivity {
 
         Button carStatus=(Button) findViewById(R.id.carStatus);
         Button bookSpot=(Button) findViewById(R.id.bookSpot);
+        Button profile=(Button) findViewById(R.id.profile);
         final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        final Animation myAnim1 = AnimationUtils.loadAnimation(this, R.anim.bounce1);
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         myAnim.setInterpolator(interpolator);
-        carStatus.startAnimation(myAnim);
+        myAnim1.setInterpolator(interpolator);
+        carStatus.startAnimation(myAnim1);
         bookSpot.startAnimation(myAnim);
+        profile.startAnimation(myAnim);
 
     }
 

@@ -71,7 +71,7 @@ public class BOOK extends AppCompatActivity {
 
         Button bookSpot=(Button) findViewById(R.id.book);
         final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.3, 30);
         myAnim.setInterpolator(interpolator);
 
         bookSpot.startAnimation(myAnim);
