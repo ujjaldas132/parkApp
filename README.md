@@ -12,15 +12,20 @@
 ![Status](https://img.shields.io/badge/status-stable-green.svg?style=for-the-badge) ![Status](https://img.shields.io/badge/CodeCompletion-unavailable-green.svg?style=for-the-badge)
 
 
+
 # Introduction
-Android app for smart parking
+This project aims at smart charging of electric vehicles through Optimal Cooperative Charging
+Strategy 
+
+It contains mainly three components
+- A Android App
+- A BackEnd Sysytem
+- A dashboard 
 
 
 
 
 
-
-this app will have the facility of finding a spot for charging a electric car,booking a spot for charging,payment for the service etc.
 
 
 
@@ -40,13 +45,13 @@ Go to your android app and do the rest of the work the UI will guide you what to
 
 # Componenets 
 
-## backend
+## Backend
   Find the backend in the `backend/` folder
   
-## virtual environment
+## Virtual Environment
    Find the backend in the `virtual-parkingLOT/` folder
 
-## android app
+## Android App
  find the android app in `asset/` folder
 
 
