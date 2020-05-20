@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 parkapp-2c28c-firebase-adminsdk-8y0q2-3afaa24130.json
-.json
+*.json
